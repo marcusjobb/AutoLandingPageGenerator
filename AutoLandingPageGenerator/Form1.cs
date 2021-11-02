@@ -77,24 +77,25 @@
             RefreshSection();
         }
 
-        private void Button3_Click(object sender, EventArgs e)
+        private void BtMoveLeft_Click(object sender, EventArgs e)
         {
             UpdateSection();
             pageId--;
             RefreshSection();
         }
 
-        private void Button4_Click(object sender, EventArgs e)
+        private void BtMoveRight_Click(object sender, EventArgs e)
         {
             UpdateSection();
             pageId++;
             RefreshSection();
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void BtPreview_Click(object sender, EventArgs e)
         {
             UpdateSection();
             webPage.Generate(@".\");
         }
+
     }
 }
