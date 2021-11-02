@@ -36,6 +36,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.lbFontSize = new System.Windows.Forms.Label();
             this.txSize = new System.Windows.Forms.TextBox();
             this.ckRepeat = new System.Windows.Forms.CheckBox();
@@ -92,7 +94,6 @@
             this.button2.TabIndex = 51;
             this.button2.Text = "&Preview";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button3
             // 
@@ -102,7 +103,6 @@
             this.button3.TabIndex = 52;
             this.button3.Text = "<<";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // button4
             // 
@@ -112,7 +112,6 @@
             this.button4.TabIndex = 53;
             this.button4.Text = ">>";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // Cancel
             // 
@@ -127,6 +126,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lbFontSize);
             this.panel1.Controls.Add(this.txSize);
             this.panel1.Controls.Add(this.ckRepeat);
@@ -152,6 +153,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(787, 143);
             this.panel1.TabIndex = 6;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(526, 41);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(248, 29);
+            this.comboBox1.TabIndex = 22;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(526, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 21);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Section type";
             // 
             // lbFontSize
             // 
@@ -275,10 +297,11 @@
             // 
             this.cbFontFamily.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFontFamily.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbFontFamily.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbFontFamily.FormattingEnabled = true;
             this.cbFontFamily.Location = new System.Drawing.Point(170, 108);
             this.cbFontFamily.Name = "cbFontFamily";
-            this.cbFontFamily.Size = new System.Drawing.Size(121, 23);
+            this.cbFontFamily.Size = new System.Drawing.Size(121, 29);
             this.cbFontFamily.TabIndex = 9;
             // 
             // lbMargin
@@ -323,18 +346,18 @@
             // 
             this.lbTitle.AutoSize = true;
             this.lbTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbTitle.Location = new System.Drawing.Point(393, 17);
+            this.lbTitle.Location = new System.Drawing.Point(257, 17);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(39, 21);
+            this.lbTitle.Size = new System.Drawing.Size(47, 21);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "Title";
+            this.lbTitle.Text = "Label";
             // 
             // txTitle
             // 
             this.txTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txTitle.Location = new System.Drawing.Point(393, 41);
+            this.txTitle.Location = new System.Drawing.Point(258, 41);
             this.txTitle.Name = "txTitle";
-            this.txTitle.Size = new System.Drawing.Size(383, 29);
+            this.txTitle.Size = new System.Drawing.Size(260, 29);
             this.txTitle.TabIndex = 3;
             // 
             // lbName
@@ -352,7 +375,7 @@
             this.txName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txName.Location = new System.Drawing.Point(13, 41);
             this.txName.Name = "txName";
-            this.txName.Size = new System.Drawing.Size(369, 29);
+            this.txName.Size = new System.Drawing.Size(239, 29);
             this.txName.TabIndex = 1;
             // 
             // panel2
@@ -416,13 +439,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label lbInfo;
+        private System.Windows.Forms.Button btNextSection;
+        private System.Windows.Forms.Button btPreview;
+        private System.Windows.Forms.Button btMoveLeft;
+        private System.Windows.Forms.Button btMoveRight;
         private System.Windows.Forms.Button Cancel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnControls;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.TextBox txName;
         private System.Windows.Forms.Label lbPadding;
@@ -442,11 +465,23 @@
         private System.Windows.Forms.Label ltForeColor;
         private System.Windows.Forms.Button btnBackColor;
         private System.Windows.Forms.Label lbBackColor;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnPreview;
         private System.Windows.Forms.Label lbFontSize;
         private System.Windows.Forms.TextBox txSize;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbPicture;
         private System.Windows.Forms.TextBox txText;
+        private System.Windows.Forms.ComboBox cbSectionType;
+        private System.Windows.Forms.Label lbSectionType;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
