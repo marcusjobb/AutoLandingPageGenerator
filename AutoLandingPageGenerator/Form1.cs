@@ -50,24 +50,11 @@
             txWidth.Text = section.Width;
             pictureBox1.Image = section.ArticlePicture != "" ? Image.FromFile(section.ArticlePicture) : null;
 
-            bool txNameVisible = true;
-            bool txTitleVisible = true;
-            bool txPaddingVisible = true;
-            bool txMarginVisible = true;
-            bool cbFontFamilyVisible = true;
-            bool txSizeVisible = true;
-            bool btnBackColorVisible = true;
-            bool btnForeColorVisible = true;
-            bool btBackImageVisible = true;
-            bool ckStretchVisible = true;
-            bool ckScrollVisible = true;
-            bool ckRepeatVisible = true;
             bool txTextVisible = true;
             bool PictureVisible = false;
             bool titleVisible = true;
             comboBox1.Enabled = true;
             comboBox1.SelectedIndex = comboBox1.FindString(section.SectionType.ToString());
-
 
             switch (section.SectionType)
             {
@@ -107,18 +94,6 @@
             txText.Left = section.SectionType == SectionType.TextWithImageLeft ? 209 : 13;
             pictureBox1.Left = section.SectionType == SectionType.TextWithImageRight ? 721 : 13;
 
-            txName.Visible = txNameVisible;
-            txTitle.Visible = txTitleVisible;
-            txPadding.Visible = txPaddingVisible;
-            txMargin.Visible = txMarginVisible;
-            cbFontFamily.Visible = cbFontFamilyVisible;
-            txSize.Visible = txSizeVisible;
-            btnBackColor.Visible = btnBackColorVisible;
-            btForeColor.Visible = btnForeColorVisible;
-            btBackImage.Visible = btBackImageVisible;
-            ckStretch.Visible = ckStretchVisible;
-            ckScroll.Visible = ckScrollVisible;
-            ckRepeat.Visible = ckRepeatVisible;
             txText.Visible = txTextVisible;
             pictureBox1.Visible = PictureVisible;
             lbTitle.Visible = titleVisible;
