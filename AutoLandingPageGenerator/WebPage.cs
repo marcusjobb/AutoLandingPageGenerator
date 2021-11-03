@@ -66,29 +66,31 @@ namespace AutoLandingPageGenerator
                         html.AppendLine("</p>");
                         break;
                     case SectionType.ScrollingBanner:
-                        html.Append("<a name=Link").Append(item.Label).AppendLine(">");
-                        nav.Append("<a href=#").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
+                        html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
+                        nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
                         css.Append('#').AppendLine(item.Label)
                             .AppendLine("{");
                         break;
                     case SectionType.CallToAction:
-                        html.Append("<a name=Link").Append(item.Label).AppendLine(">");
-                        nav.Append("<a href=#").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
+                        html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
+                        nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
                         css.Append('#').AppendLine(item.Label).AppendLine("{");
                         break;
                     case SectionType.Text:
                         css.Append('#').AppendLine(item.Label);
-                        nav.Append("<a href=#").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
+                        nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
                         css.AppendLine("{");
-                        html.Append("<a name=Link").Append(item.Label).AppendLine(">");
+                        html.Append("<div id=").Append(item.Label).Append("Container").AppendLine(">");
+                        html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
                         html.Append("<div id=").Append(item.Label).AppendLine(">");
                         html.Append("<h1>").Append(item.Name).AppendLine("</h1>");
                         html.AppendLine(item.Text.Replace("\r\n", "<br>"));
                         html.AppendLine("</div>");
+                        html.AppendLine("</div>");
                         break;
                     case SectionType.TextWithImageRight:
-                        nav.Append("<a href=#").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
-                        html.Append("<a name=Link").Append(item.Label).AppendLine(">");
+                        nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
+                        html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
                         html.Append("<div id=").Append(item.Label).AppendLine(">");
                         html.Append("<h1>").Append(item.Name).AppendLine("</h1>");
                         if (item.ArticlePicture != "") html.Append("<img src=\"").Append(item.ArticlePicture).AppendLine("\">");
@@ -99,8 +101,8 @@ namespace AutoLandingPageGenerator
                         css.AppendLine("{");
                         break;
                     case SectionType.TextWithImageLeft:
-                        nav.Append("<a href=#").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
-                        html.Append("<a name=Link").Append(item.Label).AppendLine(">");
+                        nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
+                        html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
                         html.Append("<div id=").Append(item.Label).AppendLine(">");
                         html.Append("<h1>").Append(item.Name).AppendLine("</h1>");
                         if (item.ArticlePicture != "") html.Append("<img src=\"").Append(item.ArticlePicture).AppendLine("\">");
@@ -110,8 +112,8 @@ namespace AutoLandingPageGenerator
                         css.AppendLine("{");
                         break;
                     case SectionType.TextAndButton:
-                        nav.Append("<a href=#").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
-                        html.Append("<a name=Link").Append(item.Label).AppendLine(">");
+                        nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
+                        html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
                         html.Append("<div id=").Append(item.Label).AppendLine(">");
                         html.Append("<h1>").Append(item.Name).AppendLine("</h1>");
                         html.AppendLine(item.Text.Replace("\r\n", "<br>"));
@@ -120,8 +122,8 @@ namespace AutoLandingPageGenerator
                         css.AppendLine("{");
                         break;
                     case SectionType.ContactForm:
-                        nav.Append("<a href=#").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
-                        html.Append("<a name=Link").Append(item.Label).AppendLine(">");
+                        nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
+                        html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
                         html.Append("<div id=").Append(item.Label).AppendLine(">");
                         html.Append("<h1>").Append(item.Name).AppendLine("</h1>");
                         html.AppendLine(item.Text.Replace("\r\n", "<br>"));
@@ -130,8 +132,8 @@ namespace AutoLandingPageGenerator
                         css.AppendLine("{");
                         break;
                     default:
-                        html.Append("<a name=Link").Append(item.Label).AppendLine(">");
-                        nav.Append("<a href=#").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
+                        html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
+                        nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).AppendLine("</a>");
                         html.Append("<div id=").Append(item.Label).AppendLine(">");
                         html.Append("<h1>").Append(item.Name).AppendLine("</h1>");
                         html.AppendLine(item.Text.Replace("\r\n", "<br>"));
@@ -151,6 +153,10 @@ namespace AutoLandingPageGenerator
                     css.AppendLine(AddIfNotEmpty("width", item.Width));
                     css.AppendLine(AddIfNotEmpty("height", item.Height));
                     css.AppendLine(AddIfNotEmpty("font-family", item.Font));
+                    css.AppendLine("}");
+                    css.Append('#').Append(item.Label).AppendLine("Container");
+                    css.AppendLine(AddIfNotEmpty("background-color", item.BackColor));
+                    css.AppendLine(AddIfNotEmpty("height", item.Height));
                     css.AppendLine("}");
                 }
             }
