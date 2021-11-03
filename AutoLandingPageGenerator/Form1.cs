@@ -90,6 +90,7 @@
                 default:
                     break;
             }
+
             txText.Width = PictureVisible ? 704 : 902;
             txText.Left = section.SectionType == SectionType.TextWithImageLeft ? 209 : 13;
             pictureBox1.Left = section.SectionType == SectionType.TextWithImageRight ? 721 : 13;
@@ -139,50 +140,47 @@
             comboBox1.Items.AddRange(types);
         }
 
-
-        private void btnNext_Click(object sender, EventArgs e)
+        private void BtnNext_Click(object sender, EventArgs e)
         {
             UpdateSection();
             pageId++;
             RefreshSection();
-
         }
 
-        private void btnPrev_Click(object sender, EventArgs e)
+        private void BtnPrev_Click(object sender, EventArgs e)
         {
             UpdateSection();
             pageId--;
             RefreshSection();
         }
 
-        private void btPreview_Click(object sender, EventArgs e)
+        private void BtPreview_Click(object sender, EventArgs e)
         {
             UpdateSection();
             webPage.Generate(@".\");
         }
 
-        private void btnMoveRight_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void BtnBackColor_Click(object sender, EventArgs e)
         {
-            var colSel = new ColorDialog();
-            colSel.Color = ColorTranslator.FromHtml(btnBackColor.Text);
+            var colSel = new ColorDialog
+            {
+                Color = ColorTranslator.FromHtml(btnBackColor.Text)
+            };
             colSel.ShowDialog();
             btnBackColor.Text = ColorTranslator.ToHtml(colSel.Color);
         }
 
         private void BtForeColor_Click(object sender, EventArgs e)
         {
-            var colSel = new ColorDialog();
-            colSel.Color = ColorTranslator.FromHtml(btForeColor.Text);
+            var colSel = new ColorDialog
+            {
+                Color = ColorTranslator.FromHtml(btForeColor.Text)
+            };
             colSel.ShowDialog();
             btForeColor.Text = ColorTranslator.ToHtml(colSel.Color);
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!IsRefreshing)
             {
@@ -192,7 +190,7 @@
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void PictureBox1_Click(object sender, EventArgs e)
         {
             var userFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
             OpenFileDialog fileDlg = new()
