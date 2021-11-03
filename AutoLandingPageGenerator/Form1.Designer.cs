@@ -90,7 +90,7 @@
             this.btnNext.TabIndex = 50;
             this.btnNext.Text = "&Next";
             this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            this.btnNext.Click += new System.EventHandler(this.BtnNext_Click);
             // 
             // btnPrev
             // 
@@ -100,7 +100,7 @@
             this.btnPrev.TabIndex = 51;
             this.btnPrev.Text = "&Previous";
             this.btnPrev.UseVisualStyleBackColor = true;
-            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            this.btnPrev.Click += new System.EventHandler(this.BtnPrev_Click);
             // 
             // btnMoveLeft
             // 
@@ -119,7 +119,6 @@
             this.btnMoveRight.TabIndex = 53;
             this.btnMoveRight.Text = ">>";
             this.btnMoveRight.UseVisualStyleBackColor = true;
-            this.btnMoveRight.Click += new System.EventHandler(this.btnMoveRight_Click);
             // 
             // Cancel
             // 
@@ -215,7 +214,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(248, 29);
             this.comboBox1.TabIndex = 22;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -450,7 +449,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // txText
             // 
@@ -470,7 +469,7 @@
             this.btPreview.TabIndex = 55;
             this.btPreview.Text = "&Preview";
             this.btPreview.UseVisualStyleBackColor = true;
-            this.btPreview.Click += new System.EventHandler(this.btPreview_Click);
+            this.btPreview.Click += new System.EventHandler(this.BtPreview_Click);
             // 
             // Form1
             // 
