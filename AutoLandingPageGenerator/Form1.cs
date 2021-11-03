@@ -48,10 +48,7 @@
             txText.Text = section.Text;
             txHeight.Text = section.Height;
             txWidth.Text = section.Width;
-            if (section.ArticlePicture != "")
-                pictureBox1.Image = Image.FromFile(section.ArticlePicture);
-            else
-                pictureBox1.Image = null;
+            pictureBox1.Image = section.ArticlePicture != "" ? Image.FromFile(section.ArticlePicture) : null;
 
             bool txNameVisible = true;
             bool txTitleVisible = true;
