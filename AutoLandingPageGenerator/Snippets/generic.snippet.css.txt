@@ -1,0 +1,7 @@
+﻿Padding:{padding};
+Margin:{margin};
+background-color:{backgroundcolor};
+font-size:{fontsize};
+color:{forecolor};
+width:{width};
+height:{height};
