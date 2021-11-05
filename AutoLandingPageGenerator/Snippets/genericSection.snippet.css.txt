@@ -1,0 +1,18 @@
+﻿#{SectionName}
+{
+	margin:{margin};
+	padding:{padding};
+	background-color:{backgroundcolor};
+	font-size:{fontsize};
+	color{forecolor};
+	width:{width};
+	height:{height};
+}
+#{SectionName}Container
+{
+	margin:0px;
+	padding:0px;
+	background-color:{backgroundcolor};
+	width:100%;
+	height:{height};
+}

@@ -11,7 +11,7 @@ namespace AutoLandingPageGenerator
     using System.Text;
     using System.Threading.Tasks;
 
-    class WebSection
+    internal class WebSection
     {
         public SectionType SectionType { get; set; }
         public int ID { get; set; }
