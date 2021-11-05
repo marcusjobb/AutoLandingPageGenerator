@@ -1,0 +1,13 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <title>{PageName}</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<Header>
+<div class="whopper">
+<H1>{PageName}</H1>
+<nav>{nav}</nav>
+</Header>

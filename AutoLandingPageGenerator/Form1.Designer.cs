@@ -507,13 +507,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbInfo;
-        private System.Windows.Forms.Button btNextSection;
         private System.Windows.Forms.Button btPreview;
-        private System.Windows.Forms.Button btMoveLeft;
-        private System.Windows.Forms.Button btMoveRight;
         private System.Windows.Forms.Button Cancel;
-        private System.Windows.Forms.Panel pnControls;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.TextBox txName;
         private System.Windows.Forms.Label lbPadding;
@@ -533,13 +528,9 @@
         private System.Windows.Forms.Label ltForeColor;
         private System.Windows.Forms.Button btnBackColor;
         private System.Windows.Forms.Label lbBackColor;
-        private System.Windows.Forms.Panel pnPreview;
         private System.Windows.Forms.Label lbFontSize;
         private System.Windows.Forms.TextBox txSize;
-        private System.Windows.Forms.PictureBox pbPicture;
         private System.Windows.Forms.TextBox txText;
-        private System.Windows.Forms.ComboBox cbSectionType;
-        private System.Windows.Forms.Label lbSectionType;
         private System.Windows.Forms.Label lbInfopage;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrev;
