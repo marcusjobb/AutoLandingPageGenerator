@@ -20,7 +20,7 @@ namespace AutoLandingPageGenerator
         public string Padding { get; set; } = "10x";
         public string Margin { get; set; } = "0px";
         public string Font { get; set; } = "";
-        public string BackColor { get; set; } = "#ffffff";
+        public string BackgroundColor { get; set; } = "#ffffff";
         public string ForeColor { get; set; } = "#000000";
         public string BackImage { get; set; } = "";
         public bool Stretch { get; set; } = false;
