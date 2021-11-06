@@ -50,21 +50,6 @@
             txWidth.Text = section.Width;
             pictureBox1.Image = section.ArticlePicture != "" ? Image.FromFile(section.ArticlePicture) : null;
 
-            else
-                pictureBox1.Image = null;
-
-            bool txNameVisible = true;
-            bool txTitleVisible = true;
-            bool txPaddingVisible = true;
-            bool txMarginVisible = true;
-            bool cbFontFamilyVisible = true;
-            bool txSizeVisible = true;
-            bool btnBackColorVisible = true;
-            bool btnForeColorVisible = true;
-            bool btBackImageVisible = true;
-            bool ckStretchVisible = true;
-            bool ckScrollVisible = true;
-            bool ckRepeatVisible = true;
             bool txTextVisible = true;
             bool PictureVisible = false;
             bool titleVisible = true;
@@ -139,8 +124,7 @@
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-        private void BtnNext_Click(object sender, EventArgs e)
+        {             
             cbFontFamily.Items.Add("\"Gill Sans\", sans-serif");
             cbFontFamily.Items.Add("sans-serif");
             cbFontFamily.Items.Add("serif");
@@ -155,8 +139,7 @@
             comboBox1.Items.AddRange(types);
         }
 
-
-        private void btnNext_Click(object sender, EventArgs e)
+        private void BtnNext_Click(object sender, EventArgs e)
         {
             UpdateSection();
             pageId++;
