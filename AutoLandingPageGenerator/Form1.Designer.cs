@@ -51,8 +51,8 @@
             this.lbBackImage = new System.Windows.Forms.Label();
             this.btForeColor = new System.Windows.Forms.Button();
             this.ltForeColor = new System.Windows.Forms.Label();
-            this.btnBackColor = new System.Windows.Forms.Button();
-            this.lbBackColor = new System.Windows.Forms.Label();
+            this.btnBackgroundColor = new System.Windows.Forms.Button();
+            this.lbBackgroundColor = new System.Windows.Forms.Label();
             this.lbFontFamily = new System.Windows.Forms.Label();
             this.cbFontFamily = new System.Windows.Forms.ComboBox();
             this.lbMargin = new System.Windows.Forms.Label();
@@ -148,8 +148,8 @@
             this.panel1.Controls.Add(this.lbBackImage);
             this.panel1.Controls.Add(this.btForeColor);
             this.panel1.Controls.Add(this.ltForeColor);
-            this.panel1.Controls.Add(this.btnBackColor);
-            this.panel1.Controls.Add(this.lbBackColor);
+            this.panel1.Controls.Add(this.btnBackgroundColor);
+            this.panel1.Controls.Add(this.lbBackgroundColor);
             this.panel1.Controls.Add(this.lbFontFamily);
             this.panel1.Controls.Add(this.cbFontFamily);
             this.panel1.Controls.Add(this.lbMargin);
@@ -316,25 +316,25 @@
             this.ltForeColor.TabIndex = 14;
             this.ltForeColor.Text = "ForeColor";
             // 
-            // btnBackColor
+            // btnBackgroundColor
             // 
-            this.btnBackColor.Location = new System.Drawing.Point(530, 105);
-            this.btnBackColor.Name = "btnBackColor";
-            this.btnBackColor.Size = new System.Drawing.Size(75, 23);
-            this.btnBackColor.TabIndex = 13;
-            this.btnBackColor.Text = "button5";
-            this.btnBackColor.UseVisualStyleBackColor = true;
-            this.btnBackColor.Click += new System.EventHandler(this.BtnBackColor_Click);
+            this.btnBackgroundColor.Location = new System.Drawing.Point(530, 105);
+            this.btnBackgroundColor.Name = "btnBackgroundColor";
+            this.btnBackgroundColor.Size = new System.Drawing.Size(75, 23);
+            this.btnBackgroundColor.TabIndex = 13;
+            this.btnBackgroundColor.Text = "button5";
+            this.btnBackgroundColor.UseVisualStyleBackColor = true;
+            this.btnBackgroundColor.Click += new System.EventHandler(this.BtnBackgroundColor_Click);
             // 
-            // lbBackColor
+            // lbBackgroundColor
             // 
-            this.lbBackColor.AutoSize = true;
-            this.lbBackColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbBackColor.Location = new System.Drawing.Point(528, 80);
-            this.lbBackColor.Name = "lbBackColor";
-            this.lbBackColor.Size = new System.Drawing.Size(77, 21);
-            this.lbBackColor.TabIndex = 12;
-            this.lbBackColor.Text = "Backcolor";
+            this.lbBackgroundColor.AutoSize = true;
+            this.lbBackgroundColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbBackgroundColor.Location = new System.Drawing.Point(528, 80);
+            this.lbBackgroundColor.Name = "lbBackgroundColor";
+            this.lbBackgroundColor.Size = new System.Drawing.Size(77, 21);
+            this.lbBackgroundColor.TabIndex = 12;
+            this.lbBackgroundColor.Text = "BackgroundColor";
             // 
             // lbFontFamily
             // 
@@ -526,8 +526,8 @@
         private System.Windows.Forms.Label lbBackImage;
         private System.Windows.Forms.Button btForeColor;
         private System.Windows.Forms.Label ltForeColor;
-        private System.Windows.Forms.Button btnBackColor;
-        private System.Windows.Forms.Label lbBackColor;
+        private System.Windows.Forms.Button btnBackgroundColor;
+        private System.Windows.Forms.Label lbBackgroundColor;
         private System.Windows.Forms.Label lbFontSize;
         private System.Windows.Forms.TextBox txSize;
         private System.Windows.Forms.TextBox txText;

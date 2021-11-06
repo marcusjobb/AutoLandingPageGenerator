@@ -39,7 +39,7 @@
             txMargin.Text = section.Margin;
             cbFontFamily.Text = section.Font;
             txSize.Text = section.FontSize;
-            btnBackColor.Text = section.BackColor;
+            btnBackgroundColor.Text = section.BackgroundColor;
             btForeColor.Text = section.ForeColor;
             btBackImage.Text = section.BackImage;
             ckStretch.Checked = section.Stretch;
@@ -111,7 +111,7 @@
             section.Margin = txMargin.Text;
             section.Font = cbFontFamily.Text;
             section.FontSize = txSize.Text;
-            section.BackColor = btnBackColor.Text;
+            section.BackgroundColor = btnBackgroundColor.Text;
             section.ForeColor = btForeColor.Text;
             section.BackImage = btBackImage.Text;
             section.Stretch = ckStretch.Checked;
@@ -159,14 +159,14 @@
             webPage.Generate(@".\");
         }
 
-        private void BtnBackColor_Click(object sender, EventArgs e)
+        private void BtnBackgroundColor_Click(object sender, EventArgs e)
         {
             var colSel = new ColorDialog
             {
-                Color = ColorTranslator.FromHtml(btnBackColor.Text)
+                Color = ColorTranslator.FromHtml(btnBackgroundColor.Text)
             };
             colSel.ShowDialog();
-            btnBackColor.Text = ColorTranslator.ToHtml(colSel.Color);
+            btnBackgroundColor.Text = ColorTranslator.ToHtml(colSel.Color);
         }
 
         private void BtForeColor_Click(object sender, EventArgs e)
