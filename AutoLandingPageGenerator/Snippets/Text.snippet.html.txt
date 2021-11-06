@@ -1,6 +1,8 @@
-﻿<div id="{SectionName}Container">
-<div id="{SectionName}">
-<H2>{SectionName}</H2>
-{Text}
-</div>
-</div>
+﻿<section>
+  <div id="{SectionName}Container">
+    <div id="{SectionName}">
+      <H2>{SectionName}</H2>
+      {Text}
+    </div>
+  </div>
+</section>
