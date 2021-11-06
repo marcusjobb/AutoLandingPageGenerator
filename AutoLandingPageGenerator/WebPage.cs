@@ -25,8 +25,8 @@ namespace AutoLandingPageGenerator
                     new WebSection{SectionType=SectionType.Main,Name="Landing page", Label="Body", FontSize="12px", BackgroundColor="#000",ForeColor="White", Padding="0px", Margin="0px", Height="100%"},
                     new WebSection{SectionType=SectionType.Footer,Name="Footer", Label="Footer", Text="(C) 2021 by me!", FontSize="12px", BackgroundColor="#000",ForeColor="White", Height="20px"},
                     new WebSection{SectionType=SectionType.Text, Name="Section1",Label="Section1", Text="Some info", FontSize="12px", BackgroundColor="#F00",ForeColor="White", Height="100%"},
-                    new WebSection{SectionType=SectionType.TextWithImageLeft, Name="Section2",Label="Section2",Text="Some info", FontSize="12px", BackgroundColor="#0F0",ForeColor="White", Height="100%",ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\Wallpapers\1151e0f05813e3c039dbeda5167115e7.jpg"},
-                    new WebSection{SectionType=SectionType.TextWithImageRight, Name="Section3",Label="Section3",Text="Some info", FontSize="12px", BackgroundColor="#00F",ForeColor="White", Height="100%", ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\Wallpapers\Biden Unity.jpg"},
+                    new WebSection{SectionType=SectionType.TextWithImageLeft, Name="Section2",Label="Section2",Text="Do you want to play a game?", FontSize="12px", BackgroundColor="#0F0",ForeColor="White", Height="100%",ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\1151e0f05813e3c039dbeda5167115e7.jpg"},
+                    new WebSection{SectionType=SectionType.TextWithImageRight, Name="Section3",Label="Section3",Text="<b>Biden</b> gillar spelprogrammering i unity, det sa han på invigningstalet!", FontSize="12px", BackgroundColor="#00F",ForeColor="White", Height="100%", ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\Biden Unity.jpg"},
                 });
         }
 
@@ -69,8 +69,8 @@ namespace AutoLandingPageGenerator
                     case SectionType.TextWithImageRight:
                         html.Append(ReadHtmlSnippet(item));
                         css.Append(ReadCssSectionSnippet(item));
-                    break;
-                        case SectionType.TextWithImageLeft:
+                        break;
+                    case SectionType.TextWithImageLeft:
                         html.Append(ReadHtmlSnippet(item));
                         css.Append(ReadCssSectionSnippet(item));
                         break;
@@ -138,23 +138,20 @@ namespace AutoLandingPageGenerator
         private static string ReadHtmlSnippet(WebSection item)
         {
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.html.txt";
-            string file = File.ReadAllText(filename)
-                .Replace("{PageName}", item.Name)
-                .Replace("{SectionName}", item.Name)
-                .Replace("{Text}", item.Text)
-                ;
-            return file;
+            string file = File.ReadAllText(filename);
+            return PatchCss(file, item);
         }
 
         private static string PatchCss(string code, WebSection item)
         {
             return code
-                .Replace("{SectionName}", item.Name)
+                .Replace("{PageName}", item.Name)
+                .Replace("{Text}", item.Text)
                 .Replace("{SectionName}", item.Name)
                 .Replace("{Padding}", item.Padding)
                 .Replace("{Margin}", item.Margin)
                 .Replace("{BackgroundColor}", item.BackgroundColor)
-                .Replace("{fontsize}", item.FontSize)
+                .Replace("{FontSize}", item.FontSize)
                 .Replace("{ForeColor}", item.ForeColor)
                 .Replace("{Width}", item.Width)
                 .Replace("{Height}", item.Height)
@@ -168,17 +165,16 @@ namespace AutoLandingPageGenerator
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.css.txt";
             var css = File.ReadAllText("Snippets\\Generic.snippet.css.txt");
 
-            string file =File.ReadAllText(filename)
-                .Replace("{PageName}", item.Name)
+            string file = File.ReadAllText(filename)
                 .Replace("{GenericCSS}", css)
                 ;
-            return PatchCss(file,item);
+            return PatchCss(file, item);
         }
 
         private static string ReadCssSectionSnippet(WebSection item)
         {
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.css.txt";
-            var css = File.ReadAllText("Snippets\\Generic.snippet.css.txt");
+            var css = File.ReadAllText("Snippets\\genericSection.snippet.css.txt");
             string file = File.ReadAllText(filename)
                 .Replace("{PageName}", item.Name)
                 .Replace("{GenericCSS}", css)
