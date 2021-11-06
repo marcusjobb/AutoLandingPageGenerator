@@ -1,6 +1,9 @@
-﻿<div id="{SectionName}Container">
-<div id="{SectionName}">
-<H2>{SectionName}</H2>
-<img src="{ArticlePicture}">{Text}
-</div>
-</div>
+﻿<section>
+  <div id="{SectionName}Container">
+  <div id="{SectionName}">
+    <H2>{SectionName}</H2>
+    <img src="{ArticlePicture}">
+    {Text}
+  </div>
+  </div>
+</section>
