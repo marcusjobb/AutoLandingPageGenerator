@@ -174,12 +174,10 @@ namespace AutoLandingPageGenerator
         private static string ReadCssSectionSnippet(WebSection item)
         {
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.css.txt";
-            var css = File.ReadAllText("Snippets\\genericSection.snippet.css.txt");
-            string file = File.ReadAllText(filename)
-                .Replace("{PageName}", item.Name)
-                .Replace("{GenericCSS}", css)
-                ;
-            return PatchCss(file, item);
+            var css1 = File.ReadAllText("Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.css.txt");
+            var css2 = File.ReadAllText("Snippets\\genericSection.snippet.css.txt");
+            var file = File.ReadAllText(filename).Replace("{GenericCSS}", css2);
+            return PatchCss(css2 + file, item);
         }
 
         private static void SaveCSSFile(string filePath, StringBuilder css)
