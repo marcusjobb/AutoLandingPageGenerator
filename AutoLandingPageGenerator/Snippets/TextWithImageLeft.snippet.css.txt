@@ -1,2 +1,2 @@
 ﻿#{SectionName} H2 { text-align:center;}
-#{SectionName} img { float:left;}
+#{SectionName} img { float:left; height:75px;}
