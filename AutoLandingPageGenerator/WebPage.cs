@@ -25,8 +25,8 @@ namespace AutoLandingPageGenerator
                     new WebSection{SectionType=SectionType.Main,Name="Landing page", Label="Body", FontSize="12px", BackColor="#000",ForeColor="White", Padding="0px", Margin="0px", Height="100%"},
                     new WebSection{SectionType=SectionType.Footer,Name="Footer", Label="Footer", Text="(C) 2021 by me!", FontSize="12px", BackColor="#000",ForeColor="White", Height="20px"},
                     new WebSection{SectionType=SectionType.Text, Name="Section1",Label="Section1", Text="Some info", FontSize="12px", BackColor="#F00",ForeColor="White", Height="100%"},
-                    new WebSection{SectionType=SectionType.TextAndButton, Name="Section2",Label="Section2",Text="Some info", FontSize="12px", BackColor="#0F0",ForeColor="White", Height="100%"},
-                    new WebSection{SectionType=SectionType.Text, Name="Section3",Label="Section3",Text="Some info", FontSize="12px", BackColor="#00F",ForeColor="White", Height="100%"},
+                    new WebSection{SectionType=SectionType.TextWithImageLeft, Name="Section2",Label="Section2",Text="Some info", FontSize="12px", BackColor="#0F0",ForeColor="White", Height="100%",ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\Wallpapers\1151e0f05813e3c039dbeda5167115e7.jpg"},
+                    new WebSection{SectionType=SectionType.TextWithImageRight, Name="Section3",Label="Section3",Text="Some info", FontSize="12px", BackColor="#00F",ForeColor="White", Height="100%", ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\Wallpapers\Biden Unity.jpg"},
                 });
         }
 
@@ -48,78 +48,62 @@ namespace AutoLandingPageGenerator
                         footer = item;
                         break;
                     case SectionType.NotDefined:
-                        html.AppendLine("<p>");
-                        html.AppendLine(item.Text.Replace("\r\n", "<br>"));
-                        html.AppendLine("</p>");
+                        html.Append(ReadHtmlSnippet(item));
+                        css.Append(ReadCssSnippet(item));
                         break;
-                    case SectionType.ScrollingBanner:
-                        html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
-                        nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).Append("</a>");
-                        css.Append('#').AppendLine(item.Label)
-                            .AppendLine("{");
-                        break;
-                    case SectionType.CallToAction:
-                        html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
-                        nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).Append("</a>");
-                        css.Append('#').AppendLine(item.Label).AppendLine("{");
-                        break;
+                    //case SectionType.ScrollingBanner:
+                    //    html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
+                    //    nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).Append("</a>");
+                    //    css.Append('#').AppendLine(item.Label)
+                    //        .AppendLine("{");
+                    //    break;
+                    //case SectionType.CallToAction:
+                    //    html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
+                    //    nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).Append("</a>");
+                    //    css.Append('#').AppendLine(item.Label).;
+                    //    break;
                     case SectionType.Text:
                         html.Append(ReadHtmlSnippet(item));
                         css.Append(ReadCssSectionSnippet(item));
                         break;
                     case SectionType.TextWithImageRight:
-                        nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).Append("</a>");
-                        html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
-                        html.Append("<div id=").Append(item.Label).AppendLine(">");
-                        html.Append("<h1>").Append(item.Name).AppendLine("</h1>");
-                        if (item.ArticlePicture != "") html.Append("<img src=\"").Append(item.ArticlePicture).AppendLine("\">");
-                        html.AppendLine(item.Text.Replace("\r\n", "<br>"));
-                        html.AppendLine("</div>");
-                        css.Append('#').Append(item.Label).AppendLine(" img{float:right; height:75%}");
-                        css.Append('#').AppendLine(item.Label);
-                        css.AppendLine("{");
+                        html.Append(ReadHtmlSnippet(item));
+                        css.Append(ReadCssSectionSnippet(item));
+                    break;
+                        case SectionType.TextWithImageLeft:
+                        html.Append(ReadHtmlSnippet(item));
+                        css.Append(ReadCssSectionSnippet(item));
                         break;
-                    case SectionType.TextWithImageLeft:
-                        nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).Append("</a>");
-                        html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
-                        html.Append("<div id=").Append(item.Label).AppendLine(">");
-                        html.Append("<h1>").Append(item.Name).AppendLine("</h1>");
-                        if (item.ArticlePicture != "") html.Append("<img src=\"").Append(item.ArticlePicture).AppendLine("\">");
-                        html.AppendLine(item.Text.Replace("\r\n", "<br>")).AppendLine("</div>");
-                        css.Append('#').Append(item.Label).AppendLine(" img{float:left; height:75%}");
-                        css.Append('#').AppendLine(item.Label);
-                        css.AppendLine("{");
-                        break;
-                    case SectionType.TextAndButton:
-                        nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).Append("</a>");
-                        html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
-                        html.Append("<div id=").Append(item.Label).AppendLine(">");
-                        html.Append("<h1>").Append(item.Name).AppendLine("</h1>");
-                        html.AppendLine(item.Text.Replace("\r\n", "<br>"));
-                        html.AppendLine("</div>");
-                        css.Append('#').AppendLine(item.Label);
-                        css.AppendLine("{");
-                        break;
-                    case SectionType.ContactForm:
-                        nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).Append("</a>");
-                        html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
-                        html.Append("<div id=").Append(item.Label).AppendLine(">");
-                        html.Append("<h1>").Append(item.Name).AppendLine("</h1>");
-                        html.AppendLine(item.Text.Replace("\r\n", "<br>"));
-                        html.AppendLine("</div>");
-                        css.Append('#').AppendLine(item.Label);
-                        css.AppendLine("{");
-                        break;
-                    default:
-                        html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
-                        nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).Append("</a>");
-                        html.Append("<div id=").Append(item.Label).AppendLine(">");
-                        html.Append("<h1>").Append(item.Name).AppendLine("</h1>");
-                        html.AppendLine(item.Text.Replace("\r\n", "<br>"));
-                        html.AppendLine("</div>");
-                        css.Append('#').AppendLine(item.Label);
-                        css.AppendLine("{");
-                        break;
+                        //case SectionType.TextAndButton:
+                        //    nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).Append("</a>");
+                        //    html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
+                        //    html.Append("<div id=").Append(item.Label).AppendLine(">");
+                        //    html.Append("<h1>").Append(item.Name).AppendLine("</h1>");
+                        //    html.AppendLine(item.Text.Replace("\r\n", "<br>"));
+                        //    html.AppendLine("</div>");
+                        //    css.Append('#').AppendLine(item.Label);
+                        //    css.AppendLine("{");
+                        //    break;
+                        //case SectionType.ContactForm:
+                        //    nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).Append("</a>");
+                        //    html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
+                        //    html.Append("<div id=").Append(item.Label).AppendLine(">");
+                        //    html.Append("<h1>").Append(item.Name).AppendLine("</h1>");
+                        //    html.AppendLine(item.Text.Replace("\r\n", "<br>"));
+                        //    html.AppendLine("</div>");
+                        //    css.Append('#').AppendLine(item.Label);
+                        //    css.AppendLine("{");
+                        //    break;
+                        //default:
+                        //    html.Append("<a name=Link").Append(item.Label).AppendLine("></a>");
+                        //    nav.Append("<a href=#Link").Append(item.Label).Append('>').Append(item.Name).Append("</a>");
+                        //    html.Append("<div id=").Append(item.Label).AppendLine(">");
+                        //    html.Append("<h1>").Append(item.Name).AppendLine("</h1>");
+                        //    html.AppendLine(item.Text.Replace("\r\n", "<br>"));
+                        //    html.AppendLine("</div>");
+                        //    css.Append('#').AppendLine(item.Label);
+                        //    css.AppendLine("{");
+                        //    break;
                 }
 
                 //if (item.SectionType != SectionType.NotDefined)
@@ -166,6 +150,7 @@ namespace AutoLandingPageGenerator
         {
             return code
                 .Replace("{SectionName}", item.Name)
+                .Replace("{SectionName}", item.Name)
                 .Replace("{padding}", item.Padding)
                 .Replace("{margin}", item.Margin)
                 .Replace("{backgroundcolor}", item.BackColor)
@@ -173,6 +158,7 @@ namespace AutoLandingPageGenerator
                 .Replace("{forecolor}", item.ForeColor)
                 .Replace("{width}", item.Width)
                 .Replace("{height}", item.Height)
+                .Replace("{articlePicture}", item.ArticlePicture)
                 ;
             ;
         }
@@ -180,24 +166,24 @@ namespace AutoLandingPageGenerator
         private static string ReadCssSnippet(WebSection item)
         {
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.css.txt";
-            var css = PatchCss(File.ReadAllText("Snippets\\Generic.snippet.css.txt"), item);
+            var css = File.ReadAllText("Snippets\\Generic.snippet.css.txt");
 
-            string file = PatchCss(File.ReadAllText(filename), item)
+            string file =File.ReadAllText(filename)
                 .Replace("{PageName}", item.Name)
                 .Replace("{GenericCSS}", css)
                 ;
-            return file;
+            return PatchCss(file,item);
         }
 
         private static string ReadCssSectionSnippet(WebSection item)
         {
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.css.txt";
-            var css = PatchCss(File.ReadAllText("Snippets\\Generic.snippet.css.txt"), item);
+            var css = File.ReadAllText("Snippets\\Generic.snippet.css.txt");
             string file = File.ReadAllText(filename)
                 .Replace("{PageName}", item.Name)
                 .Replace("{GenericCSS}", css)
                 ;
-            return file;
+            return PatchCss(file, item);
         }
 
         private static string AddIfNotEmpty(string tag, string value)

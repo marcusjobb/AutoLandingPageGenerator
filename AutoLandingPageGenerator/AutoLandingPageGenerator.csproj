@@ -10,6 +10,24 @@
     <None Update="Snippets\genericSection.snippet.css.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Snippets\NotDefined.snippet.css.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Snippets\NotDefined.snippet.html.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Snippets\TextWithImageLeft.snippet.css.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Snippets\TextWithImageLeft.snippet.html.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Snippets\TextWithImageRight.snippet.css.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Snippets\TextWithImageRight.snippet.html.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Snippets\Text.snippet.css.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
