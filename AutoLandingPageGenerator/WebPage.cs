@@ -22,11 +22,11 @@ namespace AutoLandingPageGenerator
             Sections.AddRange(
                 new WebSection[]
                 {
-                    new WebSection{SectionType=SectionType.Main,Name="Landing page", Label="Body", FontSize="12px", BackColor="#000",ForeColor="White", Padding="0px", Margin="0px", Height="100%"},
-                    new WebSection{SectionType=SectionType.Footer,Name="Footer", Label="Footer", Text="(C) 2021 by me!", FontSize="12px", BackColor="#000",ForeColor="White", Height="20px"},
-                    new WebSection{SectionType=SectionType.Text, Name="Section1",Label="Section1", Text="Some info", FontSize="12px", BackColor="#F00",ForeColor="White", Height="100%"},
-                    new WebSection{SectionType=SectionType.TextWithImageLeft, Name="Section2",Label="Section2",Text="Some info", FontSize="12px", BackColor="#0F0",ForeColor="White", Height="100%",ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\Wallpapers\1151e0f05813e3c039dbeda5167115e7.jpg"},
-                    new WebSection{SectionType=SectionType.TextWithImageRight, Name="Section3",Label="Section3",Text="Some info", FontSize="12px", BackColor="#00F",ForeColor="White", Height="100%", ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\Wallpapers\Biden Unity.jpg"},
+                    new WebSection{SectionType=SectionType.Main,Name="Landing page", Label="Body", FontSize="12px", BackgroundColor="#000",ForeColor="White", Padding="0px", Margin="0px", Height="100%"},
+                    new WebSection{SectionType=SectionType.Footer,Name="Footer", Label="Footer", Text="(C) 2021 by me!", FontSize="12px", BackgroundColor="#000",ForeColor="White", Height="20px"},
+                    new WebSection{SectionType=SectionType.Text, Name="Section1",Label="Section1", Text="Some info", FontSize="12px", BackgroundColor="#F00",ForeColor="White", Height="100%"},
+                    new WebSection{SectionType=SectionType.TextWithImageLeft, Name="Section2",Label="Section2",Text="Some info", FontSize="12px", BackgroundColor="#0F0",ForeColor="White", Height="100%",ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\Wallpapers\1151e0f05813e3c039dbeda5167115e7.jpg"},
+                    new WebSection{SectionType=SectionType.TextWithImageRight, Name="Section3",Label="Section3",Text="Some info", FontSize="12px", BackgroundColor="#00F",ForeColor="White", Height="100%", ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\Wallpapers\Biden Unity.jpg"},
                 });
         }
 
@@ -110,7 +110,7 @@ namespace AutoLandingPageGenerator
                 //{
                 //    css.AppendLine(AddIfNotEmpty("Padding", item.Padding));
                 //    css.AppendLine(AddIfNotEmpty("Margin", item.Margin));
-                //    css.AppendLine(AddIfNotEmpty("background-color", item.BackColor));
+                //    css.AppendLine(AddIfNotEmpty("background-color", item.BackgroundColor));
                 //    css.AppendLine(AddIfNotEmpty("font-size", item.FontSize));
                 //    css.AppendLine(AddIfNotEmpty("color", item.ForeColor));
                 //    css.AppendLine(AddIfNotEmpty("width", item.Width));
@@ -118,7 +118,7 @@ namespace AutoLandingPageGenerator
                 //    css.AppendLine(AddIfNotEmpty("font-family", item.Font));
                 //    css.AppendLine("}");
                 //css.Append('#').Append(item.Label).AppendLine("Container");
-                //css.AppendLine(AddIfNotEmpty("background-color", item.BackColor));
+                //css.AppendLine(AddIfNotEmpty("background-color", item.BackgroundColor));
                 //css.AppendLine(AddIfNotEmpty("height", item.Height));
                 //css.AppendLine("}");
                 //}
@@ -151,14 +151,14 @@ namespace AutoLandingPageGenerator
             return code
                 .Replace("{SectionName}", item.Name)
                 .Replace("{SectionName}", item.Name)
-                .Replace("{padding}", item.Padding)
-                .Replace("{margin}", item.Margin)
-                .Replace("{backgroundcolor}", item.BackColor)
+                .Replace("{Padding}", item.Padding)
+                .Replace("{Margin}", item.Margin)
+                .Replace("{BackgroundColor}", item.BackgroundColor)
                 .Replace("{fontsize}", item.FontSize)
-                .Replace("{forecolor}", item.ForeColor)
-                .Replace("{width}", item.Width)
-                .Replace("{height}", item.Height)
-                .Replace("{articlePicture}", item.ArticlePicture)
+                .Replace("{ForeColor}", item.ForeColor)
+                .Replace("{Width}", item.Width)
+                .Replace("{Height}", item.Height)
+                .Replace("{ArticlePicture}", item.ArticlePicture)
                 ;
             ;
         }
@@ -184,11 +184,6 @@ namespace AutoLandingPageGenerator
                 .Replace("{GenericCSS}", css)
                 ;
             return PatchCss(file, item);
-        }
-
-        private static string AddIfNotEmpty(string tag, string value)
-        {
-            return string.IsNullOrEmpty(value) ? "" : tag + ":" + value + ";";
         }
 
         private static void SaveCSSFile(string filePath, StringBuilder css)

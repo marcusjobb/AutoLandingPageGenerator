@@ -3,4 +3,4 @@
 }
 .whooper {min-height: 90%;}
 .content {flex-grow: 1;}
-nav a, a:link a:visited a:hover a:active { color:{forecolor};font-weight: bold;}
+nav a, a:link a:visited a:hover a:active { color:{ForeColor};font-weight: bold;}
