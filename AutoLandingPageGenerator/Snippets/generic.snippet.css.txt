@@ -1,7 +1,7 @@
 ﻿Padding:{Padding};
 Margin:{Margin};
 background-color:{BackgroundColor};
-font-size:{fontsize};
+font-size:{FontSize};
 color:{ForeColor};
 width:{Width};
 height:{Height};
