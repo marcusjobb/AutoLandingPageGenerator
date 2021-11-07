@@ -35,7 +35,7 @@
             this.btnMoveLeft = new System.Windows.Forms.Button();
             this.btnMoveRight = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.ControlPanel = new System.Windows.Forms.Panel();
             this.lbWidth = new System.Windows.Forms.Label();
             this.txWidth = new System.Windows.Forms.TextBox();
             this.lbHeight = new System.Windows.Forms.Label();
@@ -67,7 +67,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txText = new System.Windows.Forms.TextBox();
             this.btPreview = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ControlPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -78,9 +79,9 @@
             this.lbInfopage.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbInfopage.Location = new System.Drawing.Point(12, 9);
             this.lbInfopage.Name = "lbInfopage";
-            this.lbInfopage.Size = new System.Drawing.Size(116, 30);
+            this.lbInfopage.Size = new System.Drawing.Size(214, 30);
             this.lbInfopage.TabIndex = 0;
-            this.lbInfopage.Text = "Main page";
+            this.lbInfopage.Text = "Start Page Generator";
             // 
             // btnNext
             // 
@@ -130,40 +131,40 @@
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
-            // panel1
+            // ControlPanel
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.lbWidth);
-            this.panel1.Controls.Add(this.txWidth);
-            this.panel1.Controls.Add(this.lbHeight);
-            this.panel1.Controls.Add(this.txHeight);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.lbFontSize);
-            this.panel1.Controls.Add(this.txSize);
-            this.panel1.Controls.Add(this.ckRepeat);
-            this.panel1.Controls.Add(this.ckStretch);
-            this.panel1.Controls.Add(this.ckScroll);
-            this.panel1.Controls.Add(this.btBackImage);
-            this.panel1.Controls.Add(this.lbBackImage);
-            this.panel1.Controls.Add(this.btForeColor);
-            this.panel1.Controls.Add(this.ltForeColor);
-            this.panel1.Controls.Add(this.btnBackgroundColor);
-            this.panel1.Controls.Add(this.lbBackgroundColor);
-            this.panel1.Controls.Add(this.lbFontFamily);
-            this.panel1.Controls.Add(this.cbFontFamily);
-            this.panel1.Controls.Add(this.lbMargin);
-            this.panel1.Controls.Add(this.txMargin);
-            this.panel1.Controls.Add(this.lbPadding);
-            this.panel1.Controls.Add(this.txPadding);
-            this.panel1.Controls.Add(this.lbTitle);
-            this.panel1.Controls.Add(this.txTitle);
-            this.panel1.Controls.Add(this.lbName);
-            this.panel1.Controls.Add(this.txName);
-            this.panel1.Location = new System.Drawing.Point(12, 52);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(931, 143);
-            this.panel1.TabIndex = 6;
+            this.ControlPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ControlPanel.Controls.Add(this.lbWidth);
+            this.ControlPanel.Controls.Add(this.txWidth);
+            this.ControlPanel.Controls.Add(this.lbHeight);
+            this.ControlPanel.Controls.Add(this.txHeight);
+            this.ControlPanel.Controls.Add(this.comboBox1);
+            this.ControlPanel.Controls.Add(this.label2);
+            this.ControlPanel.Controls.Add(this.lbFontSize);
+            this.ControlPanel.Controls.Add(this.txSize);
+            this.ControlPanel.Controls.Add(this.ckRepeat);
+            this.ControlPanel.Controls.Add(this.ckStretch);
+            this.ControlPanel.Controls.Add(this.ckScroll);
+            this.ControlPanel.Controls.Add(this.btBackImage);
+            this.ControlPanel.Controls.Add(this.lbBackImage);
+            this.ControlPanel.Controls.Add(this.btForeColor);
+            this.ControlPanel.Controls.Add(this.ltForeColor);
+            this.ControlPanel.Controls.Add(this.btnBackgroundColor);
+            this.ControlPanel.Controls.Add(this.lbBackgroundColor);
+            this.ControlPanel.Controls.Add(this.lbFontFamily);
+            this.ControlPanel.Controls.Add(this.cbFontFamily);
+            this.ControlPanel.Controls.Add(this.lbMargin);
+            this.ControlPanel.Controls.Add(this.txMargin);
+            this.ControlPanel.Controls.Add(this.lbPadding);
+            this.ControlPanel.Controls.Add(this.txPadding);
+            this.ControlPanel.Controls.Add(this.lbTitle);
+            this.ControlPanel.Controls.Add(this.txTitle);
+            this.ControlPanel.Controls.Add(this.lbName);
+            this.ControlPanel.Controls.Add(this.txName);
+            this.ControlPanel.Location = new System.Drawing.Point(12, 52);
+            this.ControlPanel.Name = "ControlPanel";
+            this.ControlPanel.Size = new System.Drawing.Size(931, 143);
+            this.ControlPanel.TabIndex = 6;
             // 
             // lbWidth
             // 
@@ -332,7 +333,7 @@
             this.lbBackgroundColor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbBackgroundColor.Location = new System.Drawing.Point(528, 80);
             this.lbBackgroundColor.Name = "lbBackgroundColor";
-            this.lbBackgroundColor.Size = new System.Drawing.Size(77, 21);
+            this.lbBackgroundColor.Size = new System.Drawing.Size(131, 21);
             this.lbBackgroundColor.TabIndex = 12;
             this.lbBackgroundColor.Text = "BackgroundColor";
             // 
@@ -471,6 +472,16 @@
             this.btPreview.UseVisualStyleBackColor = true;
             this.btPreview.Click += new System.EventHandler(this.BtPreview_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(864, 415);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 56;
+            this.button1.Text = "&Export";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AcceptButton = this.btnNext;
@@ -479,9 +490,10 @@
             this.CancelButton = this.Cancel;
             this.ClientSize = new System.Drawing.Size(955, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btPreview);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ControlPanel);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.btnMoveRight);
             this.Controls.Add(this.btnMoveLeft);
@@ -495,8 +507,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Auto Landing Page Generator";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.ControlPanel.ResumeLayout(false);
+            this.ControlPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -536,7 +548,7 @@
         private System.Windows.Forms.Button btnPrev;
         private System.Windows.Forms.Button btnMoveLeft;
         private System.Windows.Forms.Button btnMoveRight;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel ControlPanel;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
@@ -545,6 +557,7 @@
         private System.Windows.Forms.TextBox txWidth;
         private System.Windows.Forms.Label lbHeight;
         private System.Windows.Forms.TextBox txHeight;
+        private System.Windows.Forms.Button button1;
     }
 }
 

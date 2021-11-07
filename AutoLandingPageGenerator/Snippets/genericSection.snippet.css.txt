@@ -1,29 +1,4 @@
-﻿#{SectionLabel}
-{
-  margin:{Margin};
-  padding:{Padding};
-  background-color:{BackgroundColor};
-  font-size:{FontSize};
-  color:{ForeColor};
-  width:75%;
-  height:100%;
-  table-layout: fixed;
-}
-#{SectionLabel} H1 { text-align:center;}
-#{SectionLabel} H2 { text-align:center;}
-#{SectionLabel} H3 { text-align:center;}
-#{SectionLabel} H4 { text-align:center;}
-
-#{SectionLabel}bottomNav a, a:link a:visited a:hover a:active { color:{ForeColor};font-weight: bold; font-decoration:none;}
-
-#{SectionLabel}bottomNav
-{
-  background-color:{BackgroundColor};
-  font-size:{FontSize};
-  color:{ForeColor};
-}
-
-#{SectionLabel}Container
+﻿#{SectionLabel}Container
 {
   margin:0px;
   padding:0px;	
@@ -32,10 +7,25 @@
   height:{Height};
 }
 
+#{SectionLabel}
+{
+  margin-left:{Margin};
+  margin-right:{Margin};
+  padding:{Padding};
+  background-color:{BackgroundColor};
+  font-size:{FontSize};
+  color:{ForeColor};
+}
+
+#{SectionLabel} H1 { text-align:center;}
+#{SectionLabel} H2 { text-align:center;}
+#{SectionLabel} H3 { text-align:center;}
+#{SectionLabel} H4 { text-align:center;}
+
 #{SectionLabel}box {
   display: flex;
   flex-flow: column;
-  height: 80%;
+  height: 75%;
   background-color:{BackgroundColor};
   font-size:{FontSize};
   color:{ForeColor};

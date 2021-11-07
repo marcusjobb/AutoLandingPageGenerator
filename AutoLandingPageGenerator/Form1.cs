@@ -5,6 +5,7 @@
     using System.ComponentModel;
     using System.Data;
     using System.Drawing;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -40,7 +41,7 @@
             cbFontFamily.Text = section.Font;
             txSize.Text = section.FontSize;
             btnBackgroundColor.Text = section.BackgroundColor;
-            btForeColor.Text = section.ForeColor;
+            btForeColor.Text = section.TextColor;
             btBackImage.Text = section.BackImage;
             ckStretch.Checked = section.Stretch;
             ckScroll.Checked = section.Scroll;
@@ -112,7 +113,7 @@
             section.Font = cbFontFamily.Text;
             section.FontSize = txSize.Text;
             section.BackgroundColor = btnBackgroundColor.Text;
-            section.ForeColor = btForeColor.Text;
+            section.TextColor = btForeColor.Text;
             section.BackImage = btBackImage.Text;
             section.Stretch = ckStretch.Checked;
             section.Scroll = ckScroll.Checked;
@@ -207,6 +208,15 @@
             {
                 MessageBox.Show("Error reading image");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UpdateSection();
+            var userFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var exportPath = Path.Combine(userFolder, "StartPages", webPage.Sections[0].Name);
+            if (!Directory.Exists(exportPath)) Directory.CreateDirectory(exportPath);
+            webPage.Generate(exportPath);
         }
     }
 }
