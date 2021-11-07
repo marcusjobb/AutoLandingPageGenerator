@@ -27,6 +27,8 @@ namespace AutoLandingPageGenerator
                     {
                     new WebSection(head){Name="Landing page", Label="Top"},
                     new WebSection{Name="Footer", Label="Footer", Text="(C) 2021 by me! - {nav}", FontSize="1.3em", BackgroundColor="#000", TextColor="White", Height="20px", SectionType=SectionType.Footer},
+                    new WebSection{Name="ExtraCSS", Text="div{opacity: 0.95;}\r\ndiv:hover {opacity: 1;}",SectionType=SectionType.ExtraCSS},
+                    new WebSection{Name="JavaScript", Text="alert(\"Hello\");",SectionType=SectionType.JavaScript},
                     new WebSection{Name="Min coola Landing page", Label="Intro", Height="300px", TextColor="White", BackgroundColor="Navy", SectionType=SectionType.HugeTitle},
                     new WebSection(sec){Name="Info", Label="", Text="Information..."+lorem, BackgroundColor="#8000FF",TextColor="White",SectionType=SectionType.Text},
                     new WebSection(sec){Name="Saw", Label="", Text="Do you want to play a game?" + lorem, BackgroundColor="#800040",TextColor="White", SectionType=SectionType.TextWithImageLeft,  ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\1151e0f05813e3c039dbeda5167115e7.jpg"},
@@ -39,6 +41,8 @@ namespace AutoLandingPageGenerator
             var html = new StringBuilder();
             var css = new StringBuilder();
             var nav = new StringBuilder();
+            var javascript = new StringBuilder();
+
             WebSection footer = null;
             foreach (var item in Sections)
             {
@@ -48,6 +52,12 @@ namespace AutoLandingPageGenerator
                         html.Append("<a name=top></a>");
                         html.Append(ReadHtmlSnippet(item));
                         css.Append(ReadCssSnippet(item));
+                        break;
+                    case SectionType.ExtraCSS:
+                        css.Append(item.Text);
+                        break;
+                    case SectionType.JavaScript:
+                        javascript.Append(item.Text);
                         break;
                     case SectionType.NotDefined:
                     case SectionType.Text:
@@ -136,23 +146,23 @@ namespace AutoLandingPageGenerator
             html.AppendLine("</html>");
             var htmlFile = SaveHTMLFile(filePath, html, nav);
             SaveCSSFile(filePath, css);
-
+            SaveJSFile(filePath, javascript);
             OpenWebpage(htmlFile);
         }
 
-        private static string ReadHtmlSnippet(WebSection item, string picPath="")
+        private static string ReadHtmlSnippet(WebSection item, string picPath = "")
         {
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.html.txt";
             var file = File.ReadAllText(filename);
             return PatchCss(file, item, picPath);
         }
 
-        private static string PatchCss(string code, WebSection item, string picPath="")
+        private static string PatchCss(string code, WebSection item, string picPath = "")
         {
             string pic;
-            if (picPath!="")
+            if (picPath != "")
             {
-                pic = item.ArticlePicture = Path.Combine(picPath,Path.GetFileName(item.ArticlePicture));
+                pic = item.ArticlePicture = Path.Combine(picPath, Path.GetFileName(item.ArticlePicture));
             }
             else
                 pic = item.ArticlePicture;
@@ -171,10 +181,9 @@ namespace AutoLandingPageGenerator
                 .Replace("{Height}", item.Height)
                 .Replace("{ArticlePicture}", item.ArticlePicture)
                 ;
-            ;
         }
 
-        private static string ReadCssSnippet(WebSection item, string picPath="")
+        private static string ReadCssSnippet(WebSection item, string picPath = "")
         {
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.css.txt";
             var css = File.ReadAllText("Snippets\\Generic.snippet.css.txt");
@@ -185,7 +194,7 @@ namespace AutoLandingPageGenerator
             return PatchCss(file, item, picPath);
         }
 
-        private static string ReadCssSectionSnippet(WebSection item, string picPath="")
+        private static string ReadCssSectionSnippet(WebSection item, string picPath = "")
         {
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.css.txt";
             var css1 = File.ReadAllText("Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.css.txt");
@@ -198,6 +207,12 @@ namespace AutoLandingPageGenerator
         {
             var cssFile = Path.Combine(filePath, "style.css");
             File.WriteAllText(cssFile, css.ToString());
+        }
+
+        private static void SaveJSFile(string filePath, StringBuilder js)
+        {
+            var jsFile = Path.Combine(filePath, "script.js");
+            File.WriteAllText(jsFile, js.ToString());
         }
 
         private static string SaveHTMLFile(string filePath, StringBuilder html, StringBuilder nav)
