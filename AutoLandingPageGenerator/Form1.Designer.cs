@@ -63,14 +63,14 @@
             this.txTitle = new System.Windows.Forms.TextBox();
             this.lbName = new System.Windows.Forms.Label();
             this.txName = new System.Windows.Forms.TextBox();
-            this.pnPreview = new System.Windows.Forms.Panel();
-            this.pcArticleImage = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pbArticleImage = new System.Windows.Forms.PictureBox();
             this.txText = new System.Windows.Forms.TextBox();
             this.btPreview = new System.Windows.Forms.Button();
             this.btExport = new System.Windows.Forms.Button();
             this.pnSettings.SuspendLayout();
-            this.pnPreview.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcArticleImage)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArticleImage)).BeginInit();
             this.SuspendLayout();
             // 
             // lbInfopage
@@ -88,7 +88,7 @@
             this.btnNext.Location = new System.Drawing.Point(713, 415);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 50;
+            this.btnNext.TabIndex = 37;
             this.btnNext.Text = "&Next";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.BtnNext_Click);
@@ -98,7 +98,7 @@
             this.btnPrev.Location = new System.Drawing.Point(632, 415);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(75, 23);
-            this.btnPrev.TabIndex = 51;
+            this.btnPrev.TabIndex = 36;
             this.btnPrev.Text = "&Previous";
             this.btnPrev.UseVisualStyleBackColor = true;
             this.btnPrev.Click += new System.EventHandler(this.BtnPrev_Click);
@@ -108,7 +108,7 @@
             this.btnMoveLeft.Location = new System.Drawing.Point(270, 415);
             this.btnMoveLeft.Name = "btnMoveLeft";
             this.btnMoveLeft.Size = new System.Drawing.Size(75, 23);
-            this.btnMoveLeft.TabIndex = 52;
+            this.btnMoveLeft.TabIndex = 33;
             this.btnMoveLeft.Text = "<<";
             this.btnMoveLeft.UseVisualStyleBackColor = true;
             // 
@@ -117,7 +117,7 @@
             this.btnMoveRight.Location = new System.Drawing.Point(351, 415);
             this.btnMoveRight.Name = "btnMoveRight";
             this.btnMoveRight.Size = new System.Drawing.Size(75, 23);
-            this.btnMoveRight.TabIndex = 53;
+            this.btnMoveRight.TabIndex = 34;
             this.btnMoveRight.Text = ">>";
             this.btnMoveRight.UseVisualStyleBackColor = true;
             // 
@@ -126,7 +126,7 @@
             this.Cancel.Location = new System.Drawing.Point(12, 415);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(75, 23);
-            this.Cancel.TabIndex = 54;
+            this.Cancel.TabIndex = 32;
             this.Cancel.Text = "&Cancel";
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
@@ -164,7 +164,7 @@
             this.pnSettings.Location = new System.Drawing.Point(12, 52);
             this.pnSettings.Name = "pnSettings";
             this.pnSettings.Size = new System.Drawing.Size(931, 143);
-            this.pnSettings.TabIndex = 6;
+            this.pnSettings.TabIndex = 1;
             // 
             // lbWidth
             // 
@@ -173,7 +173,7 @@
             this.lbWidth.Location = new System.Drawing.Point(239, 82);
             this.lbWidth.Name = "lbWidth";
             this.lbWidth.Size = new System.Drawing.Size(52, 21);
-            this.lbWidth.TabIndex = 25;
+            this.lbWidth.TabIndex = 14;
             this.lbWidth.Text = "Width";
             // 
             // txWidth
@@ -183,7 +183,7 @@
             this.txWidth.Location = new System.Drawing.Point(239, 110);
             this.txWidth.Name = "txWidth";
             this.txWidth.Size = new System.Drawing.Size(62, 22);
-            this.txWidth.TabIndex = 26;
+            this.txWidth.TabIndex = 15;
             this.txWidth.Text = "100%";
             // 
             // lbHeight
@@ -193,7 +193,7 @@
             this.lbHeight.Location = new System.Drawing.Point(167, 82);
             this.lbHeight.Name = "lbHeight";
             this.lbHeight.Size = new System.Drawing.Size(56, 21);
-            this.lbHeight.TabIndex = 23;
+            this.lbHeight.TabIndex = 12;
             this.lbHeight.Text = "Height";
             // 
             // txHeight
@@ -203,7 +203,7 @@
             this.txHeight.Location = new System.Drawing.Point(167, 106);
             this.txHeight.Name = "txHeight";
             this.txHeight.Size = new System.Drawing.Size(62, 22);
-            this.txHeight.TabIndex = 24;
+            this.txHeight.TabIndex = 13;
             // 
             // cbSectionType
             // 
@@ -214,7 +214,7 @@
             this.cbSectionType.Location = new System.Drawing.Point(526, 41);
             this.cbSectionType.Name = "cbSectionType";
             this.cbSectionType.Size = new System.Drawing.Size(248, 29);
-            this.cbSectionType.TabIndex = 22;
+            this.cbSectionType.TabIndex = 7;
             this.cbSectionType.SelectedIndexChanged += new System.EventHandler(this.CbSectionType_SelectedIndexChanged);
             // 
             // lbSectionType
@@ -224,7 +224,7 @@
             this.lbSectionType.Location = new System.Drawing.Point(526, 17);
             this.lbSectionType.Name = "lbSectionType";
             this.lbSectionType.Size = new System.Drawing.Size(95, 21);
-            this.lbSectionType.TabIndex = 21;
+            this.lbSectionType.TabIndex = 6;
             this.lbSectionType.Text = "Section type";
             // 
             // lbFontSize
@@ -234,7 +234,7 @@
             this.lbFontSize.Location = new System.Drawing.Point(440, 82);
             this.lbFontSize.Name = "lbFontSize";
             this.lbFontSize.Size = new System.Drawing.Size(71, 21);
-            this.lbFontSize.TabIndex = 10;
+            this.lbFontSize.TabIndex = 18;
             this.lbFontSize.Text = "Font size";
             // 
             // txSize
@@ -244,7 +244,7 @@
             this.txSize.Location = new System.Drawing.Point(440, 106);
             this.txSize.Name = "txSize";
             this.txSize.Size = new System.Drawing.Size(62, 22);
-            this.txSize.TabIndex = 11;
+            this.txSize.TabIndex = 19;
             // 
             // ckRepeat
             // 
@@ -252,7 +252,7 @@
             this.ckRepeat.Location = new System.Drawing.Point(851, 86);
             this.ckRepeat.Name = "ckRepeat";
             this.ckRepeat.Size = new System.Drawing.Size(62, 19);
-            this.ckRepeat.TabIndex = 20;
+            this.ckRepeat.TabIndex = 27;
             this.ckRepeat.Text = "Repeat";
             this.ckRepeat.UseVisualStyleBackColor = true;
             // 
@@ -262,7 +262,7 @@
             this.ckStretch.Location = new System.Drawing.Point(782, 86);
             this.ckStretch.Name = "ckStretch";
             this.ckStretch.Size = new System.Drawing.Size(63, 19);
-            this.ckStretch.TabIndex = 18;
+            this.ckStretch.TabIndex = 26;
             this.ckStretch.Text = "Stretch";
             this.ckStretch.UseVisualStyleBackColor = true;
             // 
@@ -274,7 +274,7 @@
             this.ckScroll.Location = new System.Drawing.Point(782, 109);
             this.ckScroll.Name = "ckScroll";
             this.ckScroll.Size = new System.Drawing.Size(55, 19);
-            this.ckScroll.TabIndex = 19;
+            this.ckScroll.TabIndex = 28;
             this.ckScroll.Text = "Scroll";
             this.ckScroll.UseVisualStyleBackColor = true;
             // 
@@ -283,7 +283,7 @@
             this.btBackImage.Location = new System.Drawing.Point(701, 107);
             this.btBackImage.Name = "btBackImage";
             this.btBackImage.Size = new System.Drawing.Size(75, 23);
-            this.btBackImage.TabIndex = 17;
+            this.btBackImage.TabIndex = 25;
             this.btBackImage.Text = "button5";
             this.btBackImage.UseVisualStyleBackColor = true;
             // 
@@ -294,7 +294,7 @@
             this.lbBackImage.Location = new System.Drawing.Point(699, 82);
             this.lbBackImage.Name = "lbBackImage";
             this.lbBackImage.Size = new System.Drawing.Size(73, 21);
-            this.lbBackImage.TabIndex = 16;
+            this.lbBackImage.TabIndex = 24;
             this.lbBackImage.Text = "Back img";
             // 
             // btForeColor
@@ -302,7 +302,7 @@
             this.btForeColor.Location = new System.Drawing.Point(618, 107);
             this.btForeColor.Name = "btForeColor";
             this.btForeColor.Size = new System.Drawing.Size(75, 23);
-            this.btForeColor.TabIndex = 15;
+            this.btForeColor.TabIndex = 23;
             this.btForeColor.Text = "button5";
             this.btForeColor.UseVisualStyleBackColor = true;
             this.btForeColor.Click += new System.EventHandler(this.BtForeColor_Click);
@@ -314,7 +314,7 @@
             this.ltForeColor.Location = new System.Drawing.Point(616, 82);
             this.ltForeColor.Name = "ltForeColor";
             this.ltForeColor.Size = new System.Drawing.Size(79, 21);
-            this.ltForeColor.TabIndex = 14;
+            this.ltForeColor.TabIndex = 22;
             this.ltForeColor.Text = "ForeColor";
             // 
             // btnBackgroundColor
@@ -322,7 +322,7 @@
             this.btnBackgroundColor.Location = new System.Drawing.Point(530, 105);
             this.btnBackgroundColor.Name = "btnBackgroundColor";
             this.btnBackgroundColor.Size = new System.Drawing.Size(75, 23);
-            this.btnBackgroundColor.TabIndex = 13;
+            this.btnBackgroundColor.TabIndex = 21;
             this.btnBackgroundColor.Text = "button5";
             this.btnBackgroundColor.UseVisualStyleBackColor = true;
             this.btnBackgroundColor.Click += new System.EventHandler(this.BtnBackgroundColor_Click);
@@ -334,7 +334,7 @@
             this.lbBackgroundColor.Location = new System.Drawing.Point(528, 80);
             this.lbBackgroundColor.Name = "lbBackgroundColor";
             this.lbBackgroundColor.Size = new System.Drawing.Size(131, 21);
-            this.lbBackgroundColor.TabIndex = 12;
+            this.lbBackgroundColor.TabIndex = 20;
             this.lbBackgroundColor.Text = "BackgroundColor";
             // 
             // lbFontFamily
@@ -344,7 +344,7 @@
             this.lbFontFamily.Location = new System.Drawing.Point(305, 82);
             this.lbFontFamily.Name = "lbFontFamily";
             this.lbFontFamily.Size = new System.Drawing.Size(41, 21);
-            this.lbFontFamily.TabIndex = 8;
+            this.lbFontFamily.TabIndex = 16;
             this.lbFontFamily.Text = "Font";
             // 
             // cbFontFamily
@@ -356,7 +356,7 @@
             this.cbFontFamily.Location = new System.Drawing.Point(305, 106);
             this.cbFontFamily.Name = "cbFontFamily";
             this.cbFontFamily.Size = new System.Drawing.Size(121, 29);
-            this.cbFontFamily.TabIndex = 9;
+            this.cbFontFamily.TabIndex = 17;
             // 
             // lbMargin
             // 
@@ -365,7 +365,7 @@
             this.lbMargin.Location = new System.Drawing.Point(92, 82);
             this.lbMargin.Name = "lbMargin";
             this.lbMargin.Size = new System.Drawing.Size(60, 21);
-            this.lbMargin.TabIndex = 6;
+            this.lbMargin.TabIndex = 10;
             this.lbMargin.Text = "Margin";
             // 
             // txMargin
@@ -375,7 +375,7 @@
             this.txMargin.Location = new System.Drawing.Point(92, 106);
             this.txMargin.Name = "txMargin";
             this.txMargin.Size = new System.Drawing.Size(62, 22);
-            this.txMargin.TabIndex = 7;
+            this.txMargin.TabIndex = 11;
             // 
             // lbPadding
             // 
@@ -384,7 +384,7 @@
             this.lbPadding.Location = new System.Drawing.Point(13, 82);
             this.lbPadding.Name = "lbPadding";
             this.lbPadding.Size = new System.Drawing.Size(66, 21);
-            this.lbPadding.TabIndex = 4;
+            this.lbPadding.TabIndex = 8;
             this.lbPadding.Text = "Padding";
             // 
             // txPadding
@@ -394,7 +394,7 @@
             this.txPadding.Location = new System.Drawing.Point(13, 106);
             this.txPadding.Name = "txPadding";
             this.txPadding.Size = new System.Drawing.Size(62, 22);
-            this.txPadding.TabIndex = 5;
+            this.txPadding.TabIndex = 9;
             // 
             // lbTitle
             // 
@@ -403,7 +403,7 @@
             this.lbTitle.Location = new System.Drawing.Point(257, 17);
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(47, 21);
-            this.lbTitle.TabIndex = 2;
+            this.lbTitle.TabIndex = 4;
             this.lbTitle.Text = "Label";
             // 
             // txTitle
@@ -412,7 +412,7 @@
             this.txTitle.Location = new System.Drawing.Point(258, 41);
             this.txTitle.Name = "txTitle";
             this.txTitle.Size = new System.Drawing.Size(260, 29);
-            this.txTitle.TabIndex = 3;
+            this.txTitle.TabIndex = 5;
             // 
             // lbName
             // 
@@ -421,7 +421,7 @@
             this.lbName.Location = new System.Drawing.Point(13, 17);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(52, 21);
-            this.lbName.TabIndex = 0;
+            this.lbName.TabIndex = 2;
             this.lbName.Text = "Name";
             // 
             // txName
@@ -430,27 +430,27 @@
             this.txName.Location = new System.Drawing.Point(13, 41);
             this.txName.Name = "txName";
             this.txName.Size = new System.Drawing.Size(239, 29);
-            this.txName.TabIndex = 1;
+            this.txName.TabIndex = 3;
             // 
-            // pnPreview
+            // panel2
             // 
-            this.pnPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnPreview.Controls.Add(this.pcArticleImage);
-            this.pnPreview.Controls.Add(this.txText);
-            this.pnPreview.Location = new System.Drawing.Point(12, 201);
-            this.pnPreview.Name = "pnPreview";
-            this.pnPreview.Size = new System.Drawing.Size(931, 194);
-            this.pnPreview.TabIndex = 7;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.pbArticleImage);
+            this.panel2.Controls.Add(this.txText);
+            this.panel2.Location = new System.Drawing.Point(12, 201);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(931, 194);
+            this.panel2.TabIndex = 29;
             // 
-            // pcArticleImage
+            // pbArticleImage
             // 
-            this.pcArticleImage.Location = new System.Drawing.Point(721, 15);
-            this.pcArticleImage.Name = "pcArticleImage";
-            this.pcArticleImage.Size = new System.Drawing.Size(192, 160);
-            this.pcArticleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcArticleImage.TabIndex = 1;
-            this.pcArticleImage.TabStop = false;
-            this.pcArticleImage.Click += new System.EventHandler(this.PcArticleImage_Click);
+            this.pbArticleImage.Location = new System.Drawing.Point(721, 15);
+            this.pbArticleImage.Name = "pbArticleImage";
+            this.pbArticleImage.Size = new System.Drawing.Size(192, 160);
+            this.pbArticleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbArticleImage.TabIndex = 1;
+            this.pbArticleImage.TabStop = false;
+            this.pbArticleImage.Click += new System.EventHandler(this.PbArticleImage_Click);
             // 
             // txText
             // 
@@ -460,14 +460,14 @@
             this.txText.Name = "txText";
             this.txText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txText.Size = new System.Drawing.Size(704, 163);
-            this.txText.TabIndex = 0;
+            this.txText.TabIndex = 30;
             // 
             // btPreview
             // 
             this.btPreview.Location = new System.Drawing.Point(496, 415);
             this.btPreview.Name = "btPreview";
             this.btPreview.Size = new System.Drawing.Size(75, 23);
-            this.btPreview.TabIndex = 55;
+            this.btPreview.TabIndex = 35;
             this.btPreview.Text = "&Preview";
             this.btPreview.UseVisualStyleBackColor = true;
             this.btPreview.Click += new System.EventHandler(this.BtPreview_Click);
@@ -477,7 +477,7 @@
             this.btExport.Location = new System.Drawing.Point(864, 415);
             this.btExport.Name = "btExport";
             this.btExport.Size = new System.Drawing.Size(75, 23);
-            this.btExport.TabIndex = 56;
+            this.btExport.TabIndex = 38;
             this.btExport.Text = "&Export";
             this.btExport.UseVisualStyleBackColor = true;
             this.btExport.Click += new System.EventHandler(this.BtExport_Click);
@@ -492,7 +492,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.btExport);
             this.Controls.Add(this.btPreview);
-            this.Controls.Add(this.pnPreview);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnSettings);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.btnMoveRight);
@@ -509,9 +509,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnSettings.ResumeLayout(false);
             this.pnSettings.PerformLayout();
-            this.pnPreview.ResumeLayout(false);
-            this.pnPreview.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcArticleImage)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArticleImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -552,12 +552,13 @@
         private System.Windows.Forms.ComboBox cbSectionType;
         private System.Windows.Forms.Label lbSectionType;
         private System.Windows.Forms.Panel pnPreview;
-        private System.Windows.Forms.PictureBox pcArticleImage;
+        private System.Windows.Forms.PictureBox pbArticleImage;
         private System.Windows.Forms.Label lbWidth;
         private System.Windows.Forms.TextBox txWidth;
         private System.Windows.Forms.Label lbHeight;
         private System.Windows.Forms.TextBox txHeight;
         private System.Windows.Forms.Button btExport;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 
