@@ -180,7 +180,7 @@
             btForeColor.Text = ColorTranslator.ToHtml(colSel.Color);
         }
 
-        private void cbSectionType_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbSectionType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!IsRefreshing)
             {
@@ -190,7 +190,7 @@
             }
         }
 
-        private void pcArticleImage_Click(object sender, EventArgs e)
+        private void PcArticleImage_Click(object sender, EventArgs e)
         {
             var userFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
             OpenFileDialog fileDlg = new()
@@ -210,7 +210,7 @@
             }
         }
 
-        private void btExport_Click(object sender, EventArgs e)
+        private void BtExport_Click(object sender, EventArgs e)
         {
             UpdateSection();
             var userFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);

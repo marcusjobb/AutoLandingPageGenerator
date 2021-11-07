@@ -215,7 +215,7 @@
             this.cbSectionType.Name = "cbSectionType";
             this.cbSectionType.Size = new System.Drawing.Size(248, 29);
             this.cbSectionType.TabIndex = 22;
-            this.cbSectionType.SelectedIndexChanged += new System.EventHandler(this.cbSectionType_SelectedIndexChanged);
+            this.cbSectionType.SelectedIndexChanged += new System.EventHandler(this.CbSectionType_SelectedIndexChanged);
             // 
             // lbSectionType
             // 
@@ -450,7 +450,7 @@
             this.pcArticleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcArticleImage.TabIndex = 1;
             this.pcArticleImage.TabStop = false;
-            this.pcArticleImage.Click += new System.EventHandler(this.pcArticleImage_Click);
+            this.pcArticleImage.Click += new System.EventHandler(this.PcArticleImage_Click);
             // 
             // txText
             // 
@@ -480,7 +480,7 @@
             this.btExport.TabIndex = 56;
             this.btExport.Text = "&Export";
             this.btExport.UseVisualStyleBackColor = true;
-            this.btExport.Click += new System.EventHandler(this.btExport_Click);
+            this.btExport.Click += new System.EventHandler(this.BtExport_Click);
             // 
             // Form1
             // 
