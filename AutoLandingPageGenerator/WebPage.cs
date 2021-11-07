@@ -135,6 +135,8 @@ namespace AutoLandingPageGenerator
                 //}
             }
 
+            CleanUpFolder(filePath);
+
             html.AppendLine("</div>");
             if (footer != null)
             {
@@ -144,9 +146,19 @@ namespace AutoLandingPageGenerator
 
             html.AppendLine("</body>");
             html.AppendLine("</html>");
+            if (javascript.ToString().Trim().Length > 0)
+            {
+                //<script src = "script.js" type = "text/javascript"/></script>
+                SaveJSFile(filePath, javascript);
+                html = html.Replace("{JSLink}", "<script src=\"script.js\" type=\"text/javascript\"/></script>");
+            }
+            else
+            {
+                html = html.Replace("{JSLink}", "");
+            }
+
             var htmlFile = SaveHTMLFile(filePath, html, nav);
             SaveCSSFile(filePath, css);
-            SaveJSFile(filePath, javascript);
             OpenWebpage(htmlFile);
         }
 
@@ -206,19 +218,49 @@ namespace AutoLandingPageGenerator
         private static void SaveCSSFile(string filePath, StringBuilder css)
         {
             var cssFile = Path.Combine(filePath, "style.css");
+            if (File.Exists(cssFile))
+            {
+                File.Delete(cssFile);
+            }
+
             File.WriteAllText(cssFile, css.ToString());
         }
 
         private static void SaveJSFile(string filePath, StringBuilder js)
         {
             var jsFile = Path.Combine(filePath, "script.js");
-            File.WriteAllText(jsFile, js.ToString());
+            if (File.Exists(jsFile))
+            {
+                File.Delete(jsFile);
+            }
+
+            if (js.ToString().Trim().Length > 0) File.WriteAllText(jsFile, js.ToString());
+        }
+
+        private static void CleanUpFolder(string filePath)
+        {
+            foreach (var item in Directory.EnumerateFiles(filePath,"*.*",SearchOption.AllDirectories))
+            {
+                try
+                {
+                    File.Delete(item);
+                }
+                catch (Exception)
+                {
+                    Debug.WriteLine("Could not delete " + item);
+                }
+            }
         }
 
         private static string SaveHTMLFile(string filePath, StringBuilder html, StringBuilder nav)
         {
             var htmlFile = Path.Combine(filePath, "index.html");
             var htmlNav = html.ToString().Replace("{nav}", nav.ToString());
+            if (File.Exists(htmlFile))
+            {
+                File.Delete(htmlFile);
+            }
+
             File.WriteAllText(htmlFile, htmlNav);
             return htmlFile;
         }
