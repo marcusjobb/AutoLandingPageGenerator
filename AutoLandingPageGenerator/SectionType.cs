@@ -9,6 +9,8 @@ namespace AutoLandingPageGenerator
     {
         Main,
         Footer,
+        ExtraCSS,
+        JavaScript,
         NotDefined,
         HugeTitle,
         ScrollingBanner,

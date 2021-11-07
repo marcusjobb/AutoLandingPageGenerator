@@ -5,6 +5,7 @@
     <title>{PageName}</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src = "script.js" type = "text/javascript"/></script>
   </head>
   <body>
     <Header>

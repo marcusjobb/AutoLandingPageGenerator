@@ -9,7 +9,7 @@
     {
         private int pageId = 0;
         private bool IsRefreshing = false;
-
+        private int minSysPage = 4;
         private readonly WebPage webPage = new();
         public fmLandingPageWizard() => InitializeComponent();
 
@@ -69,6 +69,11 @@
                     txTextVisible = false;
                     PictureVisible = false;
                     break;
+                case SectionType.ExtraCSS:
+                case SectionType.JavaScript:
+                    titleVisible = false;
+                    cbSectionType.Enabled = false;
+                    break;
                 case SectionType.NotDefined:
                     break;
                 case SectionType.ScrollingBanner:
@@ -104,8 +109,8 @@
             btnPrev.Enabled = pageId > 0;
             btnNext.Enabled= pageId < webPage.Sections.Count-1;
 
-            btnMoveLeft.Enabled = pageId > 2;
-            btnMoveRight.Enabled = pageId > 2;
+            btnMoveLeft.Enabled = pageId > minSysPage;
+            btnMoveRight.Enabled = pageId > minSysPage;
 
         }
 
@@ -191,7 +196,8 @@
             if (!IsRefreshing)
             {
                 var type = (SectionType)Enum.Parse(typeof(SectionType), cbSectionType.Text);
-                webPage.Sections[pageId].SectionType = type;
+                if (type!=SectionType.Main && type != SectionType.Footer && type != SectionType.ExtraCSS && type != SectionType.JavaScript && type != SectionType.NotDefined)
+                    webPage.Sections[pageId].SectionType = type;
                 RefreshSection();
             }
         }
@@ -257,7 +263,7 @@
 
         private void Swap(int idA, int idB)
         {
-            if (idA < 2 || idB < 2 || idA > webPage.Sections.Count - 1 || idB > webPage.Sections.Count - 1) return;
+            if (idA < minSysPage  || idB < minSysPage || idA > webPage.Sections.Count - 1 || idB > webPage.Sections.Count - 1) return;
             var temp = webPage.Sections[idA];
             webPage.Sections[idA] = webPage.Sections[idB];
             webPage.Sections[idB] = temp;
