@@ -28,13 +28,13 @@ namespace AutoLandingPageGenerator
                     new WebSection(head){Name="Landing page", Label="Top"},
                     new WebSection{Name="Footer", Label="Footer", Text="(C) 2021 by me! - {nav}", FontSize="1.3em", BackgroundColor="#000", TextColor="White", Height="20px", SectionType=SectionType.Footer},
                     new WebSection{Name="Min coola Landing page", Label="Intro", Height="300px", TextColor="White", BackgroundColor="Navy", SectionType=SectionType.HugeTitle},
-                    new WebSection(sec){Name="Info", Label="Section1", Text="Information..."+lorem, BackgroundColor="#8000FF",TextColor="White",SectionType=SectionType.Text},
-                    new WebSection(sec){Name="Saw", Label="Section2", Text="Do you want to play a game?" + lorem, BackgroundColor="#800040",TextColor="White", SectionType=SectionType.TextWithImageLeft,  ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\1151e0f05813e3c039dbeda5167115e7.jpg"},
-                    new WebSection(sec){Name="Biden", Label="Section3", Text="<b>Biden</b> gillar spelprogrammering i Unity, det sa han på invigningstalet!"+lorem, BackgroundColor="#004000",TextColor="White", ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\Biden Unity.jpg"},
+                    new WebSection(sec){Name="Info", Label="", Text="Information..."+lorem, BackgroundColor="#8000FF",TextColor="White",SectionType=SectionType.Text},
+                    new WebSection(sec){Name="Saw", Label="", Text="Do you want to play a game?" + lorem, BackgroundColor="#800040",TextColor="White", SectionType=SectionType.TextWithImageLeft,  ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\1151e0f05813e3c039dbeda5167115e7.jpg"},
+                    new WebSection(sec){Name="Biden", Label="", Text="<b>Biden</b> gillar spelprogrammering i Unity, det sa han på invigningstalet!"+lorem, BackgroundColor="#004000",TextColor="White", ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\Biden Unity.jpg"},
                     });
         }
 
-        internal void Generate(string filePath)
+        internal void Generate(string filePath, string exportPicPath = "")
         {
             var html = new StringBuilder();
             var css = new StringBuilder();
@@ -131,6 +131,7 @@ namespace AutoLandingPageGenerator
                 html.Append(ReadHtmlSnippet(footer).Replace("{nav}", nav.ToString()));
                 css.Append(ReadCssSnippet(footer));
             }
+
             html.AppendLine("</body>");
             html.AppendLine("</html>");
             var htmlFile = SaveHTMLFile(filePath, html, nav);
@@ -139,15 +140,23 @@ namespace AutoLandingPageGenerator
             OpenWebpage(htmlFile);
         }
 
-        private static string ReadHtmlSnippet(WebSection item)
+        private static string ReadHtmlSnippet(WebSection item, string picPath="")
         {
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.html.txt";
             var file = File.ReadAllText(filename);
-            return PatchCss(file, item);
+            return PatchCss(file, item, picPath);
         }
 
-        private static string PatchCss(string code, WebSection item)
+        private static string PatchCss(string code, WebSection item, string picPath="")
         {
+            string pic;
+            if (picPath!="")
+            {
+                pic = item.ArticlePicture = Path.Combine(picPath,Path.GetFileName(item.ArticlePicture));
+            }
+            else
+                pic = item.ArticlePicture;
+
             return code
                 .Replace("{PageName}", item.Name)
                 .Replace("{Text}", item.Text)
@@ -165,7 +174,7 @@ namespace AutoLandingPageGenerator
             ;
         }
 
-        private static string ReadCssSnippet(WebSection item)
+        private static string ReadCssSnippet(WebSection item, string picPath="")
         {
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.css.txt";
             var css = File.ReadAllText("Snippets\\Generic.snippet.css.txt");
@@ -173,16 +182,16 @@ namespace AutoLandingPageGenerator
             var file = File.ReadAllText(filename)
                 .Replace("{GenericCSS}", css)
                 ;
-            return PatchCss(file, item);
+            return PatchCss(file, item, picPath);
         }
 
-        private static string ReadCssSectionSnippet(WebSection item)
+        private static string ReadCssSectionSnippet(WebSection item, string picPath="")
         {
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.css.txt";
             var css1 = File.ReadAllText("Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.css.txt");
             var css2 = File.ReadAllText("Snippets\\genericSection.snippet.css.txt");
             var file = File.ReadAllText(filename).Replace("{GenericCSS}", css2);
-            return PatchCss(css2 + file, item);
+            return PatchCss(css2 + file, item, picPath);
         }
 
         private static void SaveCSSFile(string filePath, StringBuilder css)
