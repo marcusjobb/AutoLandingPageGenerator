@@ -19,19 +19,21 @@ namespace AutoLandingPageGenerator
         public WebPage()
         {
             Sections = new();
-            var lorem = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.";
+            var lorem = "<br><br>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.";
 
+            var head = new WebSection { SectionType = SectionType.Main, Name = "Landing page", Label = "top", FontSize = "12px", BackgroundColor = "#000", TextColor = "Beige", Padding = "0px", Margin = "0px", Height = "100%" };
+            var sec = new WebSection { SectionType = SectionType.TextWithImageRight, Padding = "100px", Name = "Section", Label = "Section", Text = lorem, FontSize = "1.1em", BackgroundColor = "#00F", TextColor = "White", Height = "100%" };
 
             Sections.AddRange(
-                new WebSection[]
-                {
-                    new WebSection{SectionType=SectionType.Main,Name="Landing page", Label="Body", FontSize="12px", BackgroundColor="#000",ForeColor="White", Padding="0px", Margin="0px", Height="100%"},
-                    new WebSection{SectionType=SectionType.Footer,Name="Footer", Label="Footer", Text="(C) 2021 by me!", FontSize="12px", BackgroundColor="#000",ForeColor="White", Height="20px"},
-                    new WebSection{SectionType=SectionType.HugeTitle,Name="Min coola Landing page",Height="300px", BackgroundColor="beige"},
-                    new WebSection{SectionType=SectionType.Text, Padding="100px", Name="Info", Label="Section1", Text="Information...\r\n"+lorem, FontSize="12px", BackgroundColor="#F00",ForeColor="White", Height="100%"},
-                    new WebSection{SectionType=SectionType.TextWithImageLeft, Padding="100px", Name="Saw",Label="Section2",Text="Do you want to play a game?\r\n"+lorem, FontSize="12px", BackgroundColor="#0F0",ForeColor="White", Height="100%",ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\1151e0f05813e3c039dbeda5167115e7.jpg"},
-                    new WebSection{SectionType=SectionType.TextWithImageRight,Padding="100px",  Name="Biden",Label="Section3",Text="<b>Biden</b> gillar spelprogrammering i Unity, det sa han på invigningstalet!\r\n"+lorem, FontSize="12px", BackgroundColor="#00F",ForeColor="White", Height="100%", ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\Biden Unity.jpg"},
-                });
+                    new WebSection[]
+                    {
+                    new WebSection(head){Name="Landing page", Label="Top"},
+                    new WebSection{Name="Footer", Label="Footer", Text="(C) 2021 by me! - {nav}", FontSize="1.3em", BackgroundColor="#000", TextColor="White", Height="20px", SectionType=SectionType.Footer},
+                    new WebSection{Name="Min coola Landing page", Label="Intro", Height="300px", TextColor="White", BackgroundColor="Navy", SectionType=SectionType.HugeTitle},
+                    new WebSection(sec){Name="Info", Label="Section1", Text="Information..."+lorem, BackgroundColor="#8000FF",TextColor="White",SectionType=SectionType.Text},
+                    new WebSection(sec){Name="Saw", Label="Section2", Text="Do you want to play a game?" + lorem, BackgroundColor="#800040",TextColor="White", ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\1151e0f05813e3c039dbeda5167115e7.jpg"},
+                    new WebSection(sec){Name="Biden", Label="Section3", Text="<b>Biden</b> gillar spelprogrammering i Unity, det sa han på invigningstalet!"+lorem, BackgroundColor="#004000",TextColor="White", ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\Biden Unity.jpg"},
+                    });
         }
 
         internal void Generate(string filePath)
@@ -53,10 +55,13 @@ namespace AutoLandingPageGenerator
                     case SectionType.Text:
                     case SectionType.TextWithImageRight:
                     case SectionType.TextWithImageLeft:
-                    case SectionType.HugeTitle:
                         html.Append(ReadHtmlSnippet(item));
                         css.Append(ReadCssSectionSnippet(item));
                         nav.Append("<a href=#").Append(item.Label).Append('>').Append(item.Name).Append("</a>&nbsp;|&nbsp;");
+                        break;
+                    case SectionType.HugeTitle:
+                        html.Append(ReadHtmlSnippet(item));
+                        css.Append(ReadCssSectionSnippet(item));
                         break;
                     case SectionType.Footer:
                         footer = item;
@@ -125,7 +130,7 @@ namespace AutoLandingPageGenerator
             html.AppendLine("</div>");
             if (footer != null)
             {
-                html.Append(ReadHtmlSnippet(footer));
+                html.Append(ReadHtmlSnippet(footer).Replace("{nav}", nav.ToString()));
                 css.Append(ReadCssSnippet(footer));
             }
             html.AppendLine("</body>");
@@ -154,7 +159,7 @@ namespace AutoLandingPageGenerator
                 .Replace("{Margin}", item.Margin)
                 .Replace("{BackgroundColor}", item.BackgroundColor)
                 .Replace("{FontSize}", item.FontSize)
-                .Replace("{ForeColor}", item.ForeColor)
+                .Replace("{ForeColor}", item.TextColor)
                 .Replace("{Width}", item.Width)
                 .Replace("{Height}", item.Height)
                 .Replace("{ArticlePicture}", item.ArticlePicture)
