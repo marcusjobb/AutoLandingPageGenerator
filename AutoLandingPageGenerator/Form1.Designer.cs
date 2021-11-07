@@ -63,13 +63,13 @@
             this.txTitle = new System.Windows.Forms.TextBox();
             this.lbName = new System.Windows.Forms.Label();
             this.txName = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnPreview = new System.Windows.Forms.Panel();
             this.pcArticleImage = new System.Windows.Forms.PictureBox();
             this.txText = new System.Windows.Forms.TextBox();
             this.btPreview = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btExport = new System.Windows.Forms.Button();
             this.pnSettings.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnPreview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcArticleImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -432,15 +432,15 @@
             this.txName.Size = new System.Drawing.Size(239, 29);
             this.txName.TabIndex = 1;
             // 
-            // panel2
+            // pnPreview
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.pcArticleImage);
-            this.panel2.Controls.Add(this.txText);
-            this.panel2.Location = new System.Drawing.Point(12, 201);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(931, 194);
-            this.panel2.TabIndex = 7;
+            this.pnPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnPreview.Controls.Add(this.pcArticleImage);
+            this.pnPreview.Controls.Add(this.txText);
+            this.pnPreview.Location = new System.Drawing.Point(12, 201);
+            this.pnPreview.Name = "pnPreview";
+            this.pnPreview.Size = new System.Drawing.Size(931, 194);
+            this.pnPreview.TabIndex = 7;
             // 
             // pcArticleImage
             // 
@@ -472,15 +472,15 @@
             this.btPreview.UseVisualStyleBackColor = true;
             this.btPreview.Click += new System.EventHandler(this.BtPreview_Click);
             // 
-            // button1
+            // btExport
             // 
-            this.button1.Location = new System.Drawing.Point(864, 415);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 56;
-            this.button1.Text = "&Export";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btExport.Location = new System.Drawing.Point(864, 415);
+            this.btExport.Name = "btExport";
+            this.btExport.Size = new System.Drawing.Size(75, 23);
+            this.btExport.TabIndex = 56;
+            this.btExport.Text = "&Export";
+            this.btExport.UseVisualStyleBackColor = true;
+            this.btExport.Click += new System.EventHandler(this.btExport_Click);
             // 
             // Form1
             // 
@@ -490,9 +490,9 @@
             this.CancelButton = this.Cancel;
             this.ClientSize = new System.Drawing.Size(955, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btExport);
             this.Controls.Add(this.btPreview);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnPreview);
             this.Controls.Add(this.pnSettings);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.btnMoveRight);
@@ -509,8 +509,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnSettings.ResumeLayout(false);
             this.pnSettings.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnPreview.ResumeLayout(false);
+            this.pnPreview.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcArticleImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -551,13 +551,13 @@
         private System.Windows.Forms.Panel pnSettings;
         private System.Windows.Forms.ComboBox cbSectionType;
         private System.Windows.Forms.Label lbSectionType;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnPreview;
         private System.Windows.Forms.PictureBox pcArticleImage;
         private System.Windows.Forms.Label lbWidth;
         private System.Windows.Forms.TextBox txWidth;
         private System.Windows.Forms.Label lbHeight;
         private System.Windows.Forms.TextBox txHeight;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btExport;
     }
 }
 
