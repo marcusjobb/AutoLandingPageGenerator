@@ -41,7 +41,7 @@
             this.lbHeight = new System.Windows.Forms.Label();
             this.txHeight = new System.Windows.Forms.TextBox();
             this.cbSectionType = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbSectionType = new System.Windows.Forms.Label();
             this.lbFontSize = new System.Windows.Forms.Label();
             this.txSize = new System.Windows.Forms.TextBox();
             this.ckRepeat = new System.Windows.Forms.CheckBox();
@@ -139,7 +139,7 @@
             this.pnSettings.Controls.Add(this.lbHeight);
             this.pnSettings.Controls.Add(this.txHeight);
             this.pnSettings.Controls.Add(this.cbSectionType);
-            this.pnSettings.Controls.Add(this.label2);
+            this.pnSettings.Controls.Add(this.lbSectionType);
             this.pnSettings.Controls.Add(this.lbFontSize);
             this.pnSettings.Controls.Add(this.txSize);
             this.pnSettings.Controls.Add(this.ckRepeat);
@@ -217,15 +217,15 @@
             this.cbSectionType.TabIndex = 22;
             this.cbSectionType.SelectedIndexChanged += new System.EventHandler(this.cbSectionType_SelectedIndexChanged);
             // 
-            // label2
+            // lbSectionType
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(526, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 21);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Section type";
+            this.lbSectionType.AutoSize = true;
+            this.lbSectionType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbSectionType.Location = new System.Drawing.Point(526, 17);
+            this.lbSectionType.Name = "lbSectionType";
+            this.lbSectionType.Size = new System.Drawing.Size(95, 21);
+            this.lbSectionType.TabIndex = 21;
+            this.lbSectionType.Text = "Section type";
             // 
             // lbFontSize
             // 
@@ -550,7 +550,7 @@
         private System.Windows.Forms.Button btnMoveRight;
         private System.Windows.Forms.Panel pnSettings;
         private System.Windows.Forms.ComboBox cbSectionType;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbSectionType;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbWidth;
