@@ -11,13 +11,13 @@
     using System.Threading.Tasks;
     using System.Windows.Forms;
 
-    public partial class Form1 : Form
+    public partial class fmLandingPageWizard : Form
     {
         private int pageId = 0;
         private bool IsRefreshing = false;
 
         private readonly WebPage webPage = new();
-        public Form1()
+        public fmLandingPageWizard()
         {
             InitializeComponent();
         }
@@ -124,7 +124,7 @@
             webPage.Sections[pageId] = section;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void FmLandingPageWizard_Load(object sender, EventArgs e)
         {             
             cbFontFamily.Items.Add("\"Gill Sans\", sans-serif");
             cbFontFamily.Items.Add("sans-serif");
