@@ -65,6 +65,11 @@
                     titleVisible = false;
                     cbSectionType.Enabled = false;
                     break;
+                case SectionType.HugeTitle:
+                    txTextVisible = false;
+                    PictureVisible = false;
+                    titleVisible = false;
+                    break;
                 case SectionType.NotDefined:
                     break;
                 case SectionType.ScrollingBanner:
