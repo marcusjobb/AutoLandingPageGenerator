@@ -28,7 +28,7 @@ namespace AutoLandingPageGenerator
                     new WebSection(head){Name="Landing page", Label="Top"},
                     new WebSection{Name="Footer", Label="Footer", Text="(C) 2021 by me! - {nav}", FontSize="1.3em", BackgroundColor="#000", TextColor="White", Height="20px", SectionType=SectionType.Footer},
                     new WebSection{Name="ExtraCSS", Text="div{opacity: 0.95;}\r\ndiv:hover {opacity: 1;}",SectionType=SectionType.ExtraCSS},
-                    new WebSection{Name="JavaScript", Text="alert(\"Hello\");",SectionType=SectionType.JavaScript},
+                    new WebSection{Name="JavaScript", Text="",SectionType=SectionType.JavaScript},
                     new WebSection{Name="Min coola Landing page", Label="Intro", Height="300px", TextColor="White", BackgroundColor="Navy", SectionType=SectionType.HugeTitle},
                     new WebSection(sec){Name="Info", Label="", Text="Information..."+lorem, BackgroundColor="#8000FF",TextColor="White",SectionType=SectionType.Text},
                     new WebSection(sec){Name="Saw", Label="", Text="Do you want to play a game?" + lorem, BackgroundColor="#800040",TextColor="White", SectionType=SectionType.TextWithImageLeft,  ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\1151e0f05813e3c039dbeda5167115e7.jpg"},
