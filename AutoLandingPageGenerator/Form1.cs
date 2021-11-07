@@ -49,7 +49,7 @@
             txText.Text = section.Text;
             txHeight.Text = section.Height;
             txWidth.Text = section.Width;
-            pictureBox1.Image = section.ArticlePicture != "" ? Image.FromFile(section.ArticlePicture) : null;
+            pcArticleImage.Image = section.ArticlePicture != "" ? Image.FromFile(section.ArticlePicture) : null;
 
             bool txTextVisible = true;
             bool PictureVisible = false;
@@ -94,10 +94,10 @@
 
             txText.Width = PictureVisible ? 704 : 902;
             txText.Left = section.SectionType == SectionType.TextWithImageLeft ? 209 : 13;
-            pictureBox1.Left = section.SectionType == SectionType.TextWithImageRight ? 721 : 13;
+            pcArticleImage.Left = section.SectionType == SectionType.TextWithImageRight ? 721 : 13;
 
             txText.Visible = txTextVisible;
-            pictureBox1.Visible = PictureVisible;
+            pcArticleImage.Visible = PictureVisible;
             lbTitle.Visible = titleVisible;
             txTitle.Visible = titleVisible;
             IsRefreshing = false;
@@ -190,7 +190,7 @@
             }
         }
 
-        private void PictureBox1_Click(object sender, EventArgs e)
+        private void pcArticleImage_Click(object sender, EventArgs e)
         {
             var userFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
             OpenFileDialog fileDlg = new()
@@ -202,7 +202,7 @@
             webPage.Sections[pageId].ArticlePicture = fileDlg.FileName;
             try
             {
-                pictureBox1.Image = Image.FromFile(fileDlg.FileName);
+                pcArticleImage.Image = Image.FromFile(fileDlg.FileName);
             }
             catch (Exception)
             {
