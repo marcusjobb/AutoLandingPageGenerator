@@ -207,9 +207,7 @@ namespace AutoLandingPageGenerator
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.css.txt";
             var css = File.ReadAllText("Snippets\\Generic.snippet.css.txt");
 
-            var file = File.ReadAllText(filename)
-                .Replace("{GenericCSS}", css)
-                ;
+            var file = File.ReadAllText(filename).Replace("{GenericCSS}", css);
             return PatchSnippet(file, item);
         }
 
