@@ -1,6 +1,17 @@
-﻿body {
-{GenericCSS}
+﻿html, body{
+height: 100%;
 }
-.whooper {min-height: 90%;}
-.content {flex-grow: 1;}
-nav a, a:link a:visited a:hover a:active { color:{ForeColor};font-weight: bold;}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  {GenericCSS}
+  overflow-x: hidden;
+}
+#whooper {min-height: 90%; display:inline-block;   overflow-y: hidden;}
+nav a, a:link a:visited a:hover a:active { color:{ForeColor}; font-weight: bolder; ; font-decoration:none;}
