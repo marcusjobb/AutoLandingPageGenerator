@@ -236,7 +236,7 @@
                 if (pic.SectionType==SectionType.TextWithImageLeft || pic.SectionType == SectionType.TextWithImageRight)
                 {
                     var img = Path.Combine(exportPicPath, Path.GetFileName(pic.ArticlePicture));
-                    File.Copy(pic.ArticlePicture, img);
+                    File.Copy(pic.ArticlePicture, img,true); // overwrite if needed
                 }
             }
 
