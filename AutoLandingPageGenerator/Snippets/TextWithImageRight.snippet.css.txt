@@ -1,2 +1,19 @@
-﻿#{SectionName} H2 { text-align:center;}
-#{SectionName} img { float:right; height:75px;}
+﻿
+#{SectionLabel} img { border:5px ridge grey;}
+#{SectionLabel} .container {
+  display: flex;
+  border:3px solid yellow;
+}
+
+#{SectionLabel} img {
+  max-width: 90%
+}
+
+#{SectionLabel} .image {
+  flex-basis: 70%
+}
+
+#{SectionLabel} .text {
+  font-size: 20px;
+  padding-left: 20px;
+}

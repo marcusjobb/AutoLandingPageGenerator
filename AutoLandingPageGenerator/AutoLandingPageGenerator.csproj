@@ -16,6 +16,12 @@
     <None Update="Snippets\NotDefined.snippet.html.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Snippets\HugeTitle.snippet.css.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Snippets\HugeTitle.snippet.html.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Snippets\TextWithImageLeft.snippet.css.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
