@@ -64,13 +64,13 @@
             this.lbName = new System.Windows.Forms.Label();
             this.txName = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pcArticleImage = new System.Windows.Forms.PictureBox();
             this.txText = new System.Windows.Forms.TextBox();
             this.btPreview = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pnSettings.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcArticleImage)).BeginInit();
             this.SuspendLayout();
             // 
             // lbInfopage
@@ -435,22 +435,22 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.pcArticleImage);
             this.panel2.Controls.Add(this.txText);
             this.panel2.Location = new System.Drawing.Point(12, 201);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(931, 194);
             this.panel2.TabIndex = 7;
             // 
-            // pictureBox1
+            // pcArticleImage
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(721, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(192, 160);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
+            this.pcArticleImage.Location = new System.Drawing.Point(721, 15);
+            this.pcArticleImage.Name = "pcArticleImage";
+            this.pcArticleImage.Size = new System.Drawing.Size(192, 160);
+            this.pcArticleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcArticleImage.TabIndex = 1;
+            this.pcArticleImage.TabStop = false;
+            this.pcArticleImage.Click += new System.EventHandler(this.pcArticleImage_Click);
             // 
             // txText
             // 
@@ -511,7 +511,7 @@
             this.pnSettings.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcArticleImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -552,7 +552,7 @@
         private System.Windows.Forms.ComboBox cbSectionType;
         private System.Windows.Forms.Label lbSectionType;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pcArticleImage;
         private System.Windows.Forms.Label lbWidth;
         private System.Windows.Forms.TextBox txWidth;
         private System.Windows.Forms.Label lbHeight;
