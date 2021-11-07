@@ -1,7 +1,7 @@
 ﻿namespace AutoLandingPageGenerator
 {
 
-    partial class Form1
+    partial class fmLandingPageWizard
     {
         /// <summary>
         ///  Required designer variable.
@@ -482,7 +482,7 @@
             this.btExport.UseVisualStyleBackColor = true;
             this.btExport.Click += new System.EventHandler(this.BtExport_Click);
             // 
-            // Form1
+            // fmLandingPageWizard
             // 
             this.AcceptButton = this.btnNext;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -503,10 +503,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "fmLandingPageWizard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Auto Landing Page Generator";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FmLandingPageWizard_Load);
             this.pnSettings.ResumeLayout(false);
             this.pnSettings.PerformLayout();
             this.panel2.ResumeLayout(false);
