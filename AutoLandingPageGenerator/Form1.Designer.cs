@@ -40,7 +40,7 @@
             this.txWidth = new System.Windows.Forms.TextBox();
             this.lbHeight = new System.Windows.Forms.Label();
             this.txHeight = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbSectionType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lbFontSize = new System.Windows.Forms.Label();
             this.txSize = new System.Windows.Forms.TextBox();
@@ -138,7 +138,7 @@
             this.pnSettings.Controls.Add(this.txWidth);
             this.pnSettings.Controls.Add(this.lbHeight);
             this.pnSettings.Controls.Add(this.txHeight);
-            this.pnSettings.Controls.Add(this.comboBox1);
+            this.pnSettings.Controls.Add(this.cbSectionType);
             this.pnSettings.Controls.Add(this.label2);
             this.pnSettings.Controls.Add(this.lbFontSize);
             this.pnSettings.Controls.Add(this.txSize);
@@ -205,17 +205,17 @@
             this.txHeight.Size = new System.Drawing.Size(62, 22);
             this.txHeight.TabIndex = 24;
             // 
-            // comboBox1
+            // cbSectionType
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(526, 41);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(248, 29);
-            this.comboBox1.TabIndex = 22;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
+            this.cbSectionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSectionType.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbSectionType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbSectionType.FormattingEnabled = true;
+            this.cbSectionType.Location = new System.Drawing.Point(526, 41);
+            this.cbSectionType.Name = "cbSectionType";
+            this.cbSectionType.Size = new System.Drawing.Size(248, 29);
+            this.cbSectionType.TabIndex = 22;
+            this.cbSectionType.SelectedIndexChanged += new System.EventHandler(this.cbSectionType_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -549,7 +549,7 @@
         private System.Windows.Forms.Button btnMoveLeft;
         private System.Windows.Forms.Button btnMoveRight;
         private System.Windows.Forms.Panel pnSettings;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbSectionType;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
