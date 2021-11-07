@@ -29,7 +29,7 @@ namespace AutoLandingPageGenerator
                     new WebSection{Name="Footer", Label="Footer", Text="(C) 2021 by me! - {nav}", FontSize="1.3em", BackgroundColor="#000", TextColor="White", Height="20px", SectionType=SectionType.Footer},
                     new WebSection{Name="Min coola Landing page", Label="Intro", Height="300px", TextColor="White", BackgroundColor="Navy", SectionType=SectionType.HugeTitle},
                     new WebSection(sec){Name="Info", Label="Section1", Text="Information..."+lorem, BackgroundColor="#8000FF",TextColor="White",SectionType=SectionType.Text},
-                    new WebSection(sec){Name="Saw", Label="Section2", Text="Do you want to play a game?" + lorem, BackgroundColor="#800040",TextColor="White", ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\1151e0f05813e3c039dbeda5167115e7.jpg"},
+                    new WebSection(sec){Name="Saw", Label="Section2", Text="Do you want to play a game?" + lorem, BackgroundColor="#800040",TextColor="White", SectionType=SectionType.TextWithImageLeft,  ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\1151e0f05813e3c039dbeda5167115e7.jpg"},
                     new WebSection(sec){Name="Biden", Label="Section3", Text="<b>Biden</b> gillar spelprogrammering i Unity, det sa han på invigningstalet!"+lorem, BackgroundColor="#004000",TextColor="White", ArticlePicture=@"C:\Users\marcu\OneDrive - Software Skills International AB\Bilder\Biden Unity.jpg"},
                     });
         }
