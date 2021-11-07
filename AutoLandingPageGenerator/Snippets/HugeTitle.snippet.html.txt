@@ -3,13 +3,11 @@
         <div id="{SectionLabel}">
           <div id="{SectionLabel}box">
             <div class="row header">
-              <p><a name="{SectionLabel}"><H2>{SectionName}</H2></a></p>
             </div>
             <div class="row content">
-              <p>{Text}</p>
+              <p><a name="{SectionLabel}"><H2>{SectionName}</H2></a></p>
             </div>
             <div class="row footer">
-              <p id="{SectionLabel}bottomNav"><a href="#top">^^^ Upp ^^^</a></p>
           </div>
         </div>
       </div>

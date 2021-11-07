@@ -10,6 +10,7 @@ namespace AutoLandingPageGenerator
         Main,
         Footer,
         NotDefined,
+        HugeTitle,
         ScrollingBanner,
         CallToAction,
         Text,

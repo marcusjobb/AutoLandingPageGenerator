@@ -1,6 +1,14 @@
-﻿<Footer>
-  {Text}
-</Footer>
-<!--
-  This is a silly message
---!>
+﻿    <footer>
+      <div id="{SectionLabel}Container">
+        <div id="{SectionLabel}">
+          <div id="{SectionLabel}box">
+            <div class="row header">
+            </div>
+            <div class="row content">
+              <p>{Text}</p>
+            </div>
+            <div class="row footer">
+          </div>
+        </div>
+      </div>
+    </footer>

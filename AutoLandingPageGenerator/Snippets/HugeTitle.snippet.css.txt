@@ -1,0 +1,9 @@
+﻿#{SectionLabel}
+{
+    display: table-cell;
+    table-layout: fixed;
+ 	text-align:center;
+    font-size:5em !important;
+    vertical-align: middle !important;
+    height: {Height};
+}

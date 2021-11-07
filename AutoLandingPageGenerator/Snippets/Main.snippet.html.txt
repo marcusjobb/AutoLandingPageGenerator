@@ -1,13 +1,14 @@
 ﻿<!DOCTYPE html>
-<html lang="sv">
-<head>
-<title>{PageName}</title>
-<meta charset="utf-8" />
-<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-<Header>
-<nav>{nav}</nav>
-</Header>
-<div class="whopper">
-<H1>{PageName}</H1>
+  <html lang="sv">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{PageName}</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <Header>
+    <a name="Top"><h1>{PageName}</h1></a>
+      <nav>{nav}</nav>
+    </Header>
+  <div id="whopper">

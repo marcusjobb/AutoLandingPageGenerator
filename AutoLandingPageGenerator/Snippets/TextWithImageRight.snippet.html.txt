@@ -1,9 +1,24 @@
-﻿<section>
-  <div id="{SectionName}Container">
-  <div id="{SectionName}">
-    <H2>{SectionName}</H2>
-    <img src="{ArticlePicture}">
-    {Text}
-  </div>
-  </div>
-</section>
+﻿    <section>
+      <div id="{SectionLabel}Container">
+        <div id="{SectionLabel}">
+        <div id="{SectionLabel}box">
+          <div class="row header">
+            <p><a name="{SectionLabel}"><H2>{SectionName}</H2></a></p>
+          </div>
+          <div class="row content">
+            <div class="container">
+              <div class="text">
+                <p>{Text}</p>
+              </div>
+              <div class="image">
+                <img src="{ArticlePicture}">
+              </div>
+            </div>
+          </div>
+          <div class="row footer">
+              <p id="{SectionLabel}bottomNav"><a href="#top">^^^ Upp ^^^</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
