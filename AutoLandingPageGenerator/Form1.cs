@@ -1,14 +1,8 @@
 ﻿namespace AutoLandingPageGenerator
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
     using System.Drawing;
     using System.IO;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
 
     public partial class fmLandingPageWizard : Form
@@ -17,21 +11,22 @@
         private bool IsRefreshing = false;
 
         private readonly WebPage webPage = new();
-        public fmLandingPageWizard()
-        {
-            InitializeComponent();
-        }
+        public fmLandingPageWizard() => InitializeComponent();
 
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        private void Cancel_Click(object sender, EventArgs e) => Close();
 
         private void RefreshSection()
         {
             IsRefreshing = true;
-            if (pageId < 0) pageId = 0;
-            if (pageId >= webPage.Sections.Count) pageId = webPage.Sections.Count - 1;
+            if (pageId < 0)
+            {
+                pageId = 0;
+            }
+
+            if (pageId >= webPage.Sections.Count)
+            {
+                pageId = webPage.Sections.Count - 1;
+            }
 
             var section = webPage.Sections[pageId];
             txName.Text = section.Name;
@@ -51,9 +46,9 @@
             txWidth.Text = section.Width;
             pbArticleImage.Image = section.ArticlePicture != "" ? Image.FromFile(section.ArticlePicture) : null;
 
-            bool txTextVisible = true;
-            bool PictureVisible = false;
-            bool titleVisible = true;
+            var txTextVisible = true;
+            var PictureVisible = false;
+            var titleVisible = true;
             cbSectionType.Enabled = true;
             cbSectionType.SelectedIndex = cbSectionType.FindString(section.SectionType.ToString());
 
@@ -125,7 +120,7 @@
         }
 
         private void FmLandingPageWizard_Load(object sender, EventArgs e)
-        {             
+        {
             cbFontFamily.Items.Add("\"Gill Sans\", sans-serif");
             cbFontFamily.Items.Add("sans-serif");
             cbFontFamily.Items.Add("serif");
@@ -162,7 +157,7 @@
 
         private void BtnBackgroundColor_Click(object sender, EventArgs e)
         {
-            var colSel = new ColorDialog
+            ColorDialog colSel = new()
             {
                 Color = ColorTranslator.FromHtml(btnBackgroundColor.Text)
             };
@@ -172,7 +167,7 @@
 
         private void BtForeColor_Click(object sender, EventArgs e)
         {
-            var colSel = new ColorDialog
+            ColorDialog colSel = new()
             {
                 Color = ColorTranslator.FromHtml(btForeColor.Text)
             };
@@ -215,7 +210,11 @@
             UpdateSection();
             var userFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             var exportPath = Path.Combine(userFolder, "StartPages", webPage.Sections[0].Name);
-            if (!Directory.Exists(exportPath)) Directory.CreateDirectory(exportPath);
+            if (!Directory.Exists(exportPath))
+            {
+                Directory.CreateDirectory(exportPath);
+            }
+
             webPage.Generate(exportPath);
         }
     }
