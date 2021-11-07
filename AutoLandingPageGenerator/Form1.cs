@@ -54,8 +54,8 @@
             bool txTextVisible = true;
             bool PictureVisible = false;
             bool titleVisible = true;
-            comboBox1.Enabled = true;
-            comboBox1.SelectedIndex = comboBox1.FindString(section.SectionType.ToString());
+            cbSectionType.Enabled = true;
+            cbSectionType.SelectedIndex = cbSectionType.FindString(section.SectionType.ToString());
 
             switch (section.SectionType)
             {
@@ -63,12 +63,12 @@
                     txTextVisible = false;
                     PictureVisible = false;
                     titleVisible = false;
-                    comboBox1.Enabled = false;
+                    cbSectionType.Enabled = false;
                     break;
                 case SectionType.Footer:
                     PictureVisible = false;
                     titleVisible = false;
-                    comboBox1.Enabled = false;
+                    cbSectionType.Enabled = false;
                     break;
                 case SectionType.NotDefined:
                     break;
@@ -137,7 +137,7 @@
             RefreshSection();
 
             var types = System.Enum.GetNames(typeof(SectionType));
-            comboBox1.Items.AddRange(types);
+            cbSectionType.Items.AddRange(types);
         }
 
         private void BtnNext_Click(object sender, EventArgs e)
@@ -180,11 +180,11 @@
             btForeColor.Text = ColorTranslator.ToHtml(colSel.Color);
         }
 
-        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbSectionType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!IsRefreshing)
             {
-                var type = (SectionType)Enum.Parse(typeof(SectionType), comboBox1.Text);
+                var type = (SectionType)Enum.Parse(typeof(SectionType), cbSectionType.Text);
                 webPage.Sections[pageId].SectionType = type;
                 RefreshSection();
             }
