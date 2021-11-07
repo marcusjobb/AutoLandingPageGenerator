@@ -168,7 +168,9 @@
         private void BtPreview_Click(object sender, EventArgs e)
         {
             UpdateSection();
-            webPage.Generate(@".\");
+            var userFolder = Path.GetTempPath();
+            var exportPath = Path.Combine(userFolder, "StartPage","Preview", webPage.Sections[0].Name);
+            GenerateWebpage(exportPath);
         }
 
         private void BtnBackgroundColor_Click(object sender, EventArgs e)
@@ -227,28 +229,13 @@
             UpdateSection();
             var userFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             var exportPath = Path.Combine(userFolder, "StartPages", webPage.Sections[0].Name);
-            var exportPicPath = Path.Combine(exportPath,"images");
-            CreatePath(exportPath);
-            CreatePath(exportPicPath);
 
-            foreach (var pic in webPage.Sections )
-            {
-                if (pic.SectionType==SectionType.TextWithImageLeft || pic.SectionType == SectionType.TextWithImageRight)
-                {
-                    var img = Path.Combine(exportPicPath, Path.GetFileName(pic.ArticlePicture));
-                    File.Copy(pic.ArticlePicture, img,true); // overwrite if needed
-                }
-            }
-
-            webPage.Generate(exportPath,exportPicPath);
+            GenerateWebpage(exportPath);
         }
 
-        private static void CreatePath(string exportPath)
+        private void GenerateWebpage(string exportPath)
         {
-            if (!Directory.Exists(exportPath))
-            {
-                Directory.CreateDirectory(exportPath);
-            }
+            webPage.Generate(exportPath);
         }
 
         private void BtnMoveLeft_Click(object sender, EventArgs e)

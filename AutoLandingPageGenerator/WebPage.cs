@@ -36,12 +36,13 @@ namespace AutoLandingPageGenerator
                     });
         }
 
-        internal void Generate(string filePath, string exportPicPath = "")
+        internal void Generate(string filePath)
         {
             var html = new StringBuilder();
             var css = new StringBuilder();
             var nav = new StringBuilder();
             var javascript = new StringBuilder();
+            var exportPicPath = Path.Combine(filePath, "images");
 
             WebSection footer = null;
             foreach (var item in Sections)
@@ -63,8 +64,8 @@ namespace AutoLandingPageGenerator
                     case SectionType.Text:
                     case SectionType.TextWithImageRight:
                     case SectionType.TextWithImageLeft:
-                        html.Append(ReadHtmlSnippet(item));
-                        css.Append(ReadCssSectionSnippet(item));
+                        html.Append(ReadHtmlSnippet(item, exportPicPath));
+                        css.Append(ReadCssSectionSnippet(item, exportPicPath));
                         nav.Append("<a href=#").Append(item.Label).Append('>').Append(item.Name).Append("</a>&nbsp;|&nbsp;");
                         break;
                     case SectionType.HugeTitle:
@@ -135,7 +136,11 @@ namespace AutoLandingPageGenerator
                 //}
             }
 
+            CreatePath(filePath);
+            CreatePath(exportPicPath);
             CleanUpFolder(filePath);
+
+            CopyPicturesToFolder(exportPicPath);
 
             html.AppendLine("</div>");
             if (footer != null)
@@ -162,22 +167,24 @@ namespace AutoLandingPageGenerator
             OpenWebpage(htmlFile);
         }
 
+        private static void CreatePath(string dirPath)
+        {
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+        }
+
         private static string ReadHtmlSnippet(WebSection item, string picPath = "")
         {
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.html.txt";
             var file = File.ReadAllText(filename);
-            return PatchCss(file, item, picPath);
+            return PatchSnippet(file, item);
         }
 
-        private static string PatchCss(string code, WebSection item, string picPath = "")
+        private static string PatchSnippet(string code, WebSection item)
         {
-            string pic;
-            if (picPath != "")
-            {
-                pic = item.ArticlePicture = Path.Combine(picPath, Path.GetFileName(item.ArticlePicture));
-            }
-            else
-                pic = item.ArticlePicture;
+            var pic = item.ArticlePicture.Length > 0 ? Path.Combine("images", Path.GetFileName(item.ArticlePicture)) : "";
 
             return code
                 .Replace("{PageName}", item.Name)
@@ -191,7 +198,7 @@ namespace AutoLandingPageGenerator
                 .Replace("{ForeColor}", item.TextColor)
                 .Replace("{Width}", item.Width)
                 .Replace("{Height}", item.Height)
-                .Replace("{ArticlePicture}", item.ArticlePicture)
+                .Replace("{ArticlePicture}", pic)
                 ;
         }
 
@@ -203,7 +210,7 @@ namespace AutoLandingPageGenerator
             var file = File.ReadAllText(filename)
                 .Replace("{GenericCSS}", css)
                 ;
-            return PatchCss(file, item, picPath);
+            return PatchSnippet(file, item);
         }
 
         private static string ReadCssSectionSnippet(WebSection item, string picPath = "")
@@ -212,34 +219,24 @@ namespace AutoLandingPageGenerator
             var css1 = File.ReadAllText("Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.css.txt");
             var css2 = File.ReadAllText("Snippets\\genericSection.snippet.css.txt");
             var file = File.ReadAllText(filename).Replace("{GenericCSS}", css2);
-            return PatchCss(css2 + file, item, picPath);
+            return PatchSnippet(css2 + file, item);
         }
 
         private static void SaveCSSFile(string filePath, StringBuilder css)
         {
             var cssFile = Path.Combine(filePath, "style.css");
-            if (File.Exists(cssFile))
-            {
-                File.Delete(cssFile);
-            }
-
             File.WriteAllText(cssFile, css.ToString());
         }
 
         private static void SaveJSFile(string filePath, StringBuilder js)
         {
             var jsFile = Path.Combine(filePath, "script.js");
-            if (File.Exists(jsFile))
-            {
-                File.Delete(jsFile);
-            }
-
             if (js.ToString().Trim().Length > 0) File.WriteAllText(jsFile, js.ToString());
         }
 
-        private static void CleanUpFolder(string filePath)
+        public static void CleanUpFolder(string filePath)
         {
-            foreach (var item in Directory.EnumerateFiles(filePath,"*.*",SearchOption.AllDirectories))
+            foreach (var item in Directory.EnumerateFiles(filePath, "*.*", SearchOption.AllDirectories))
             {
                 try
                 {
@@ -279,6 +276,18 @@ namespace AutoLandingPageGenerator
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+            }
+        }
+
+        private void CopyPicturesToFolder(string exportPicPath)
+        {
+            foreach (var pic in Sections)
+            {
+                if (pic.SectionType == SectionType.TextWithImageLeft || pic.SectionType == SectionType.TextWithImageRight)
+                {
+                    var img = Path.Combine(exportPicPath, Path.GetFileName(pic.ArticlePicture));
+                    File.Copy(pic.ArticlePicture, img, true); // overwrite if needed
+                }
             }
         }
     }
