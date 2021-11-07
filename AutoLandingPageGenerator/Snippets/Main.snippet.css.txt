@@ -13,5 +13,6 @@ body {
   {GenericCSS}
   overflow-x: hidden;
 }
-#whooper {min-height: 90%; display:inline-block;   overflow-y: hidden;}
-nav a, a:link a:visited a:hover a:active { color:{ForeColor}; font-weight: bolder; ; font-decoration:none;}
+#whooper {min-height: 100%; display:inline-block; overflow-y: hidden;overflow-x: hidden;}
+nav a, a:link a:visited a:hover a:active { color:{ForeColor}; font-weight: bolder; font-decoration:none;}
+footer a, a:link a:visited a:hover a:active { color:{ForeColor}; font-weight: bolder; font-decoration:none;}

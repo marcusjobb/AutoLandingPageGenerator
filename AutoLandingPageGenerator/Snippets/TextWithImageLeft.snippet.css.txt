@@ -1,12 +1,13 @@
-﻿
-#{SectionLabel} img { border:5px ridge grey;}
-#{SectionLabel} .container {
+﻿#{SectionLabel} .container {
   display: flex;
-  border:3px solid yellow;
 }
 
 #{SectionLabel} img {
-  max-width: 90%
+  max-width: 75%;
+  max-height: 75%;
+  min-width: 75%;
+  max-height: 75%;
+  border:3px ridge grey;
 }
 
 #{SectionLabel} .image {
