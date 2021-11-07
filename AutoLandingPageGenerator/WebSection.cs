@@ -5,11 +5,7 @@
 
 namespace AutoLandingPageGenerator
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     internal class WebSection
     {
@@ -30,8 +26,8 @@ namespace AutoLandingPageGenerator
             Scroll = original.Scroll;
             Repeat = original.Repeat;
             FontSize = original.FontSize;
-            Width= original.Width;
-            Height= original.Height;
+            Width = original.Width;
+            Height = original.Height;
         }
         public SectionType SectionType { get; set; }
         public int ID { get; set; }

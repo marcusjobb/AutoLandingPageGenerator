@@ -10,8 +10,6 @@ namespace AutoLandingPageGenerator
     using System.Diagnostics;
     using System.IO;
     using System.Text;
-    using System.Windows.Forms;
-    using System.Xml.Linq;
 
     internal class WebPage
     {
@@ -144,7 +142,7 @@ namespace AutoLandingPageGenerator
         private static string ReadHtmlSnippet(WebSection item)
         {
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.html.txt";
-            string file = File.ReadAllText(filename);
+            var file = File.ReadAllText(filename);
             return PatchCss(file, item);
         }
 
@@ -172,7 +170,7 @@ namespace AutoLandingPageGenerator
             var filename = "Snippets\\" + item.SectionType.ToString().Replace("SectionType.", "") + ".snippet.css.txt";
             var css = File.ReadAllText("Snippets\\Generic.snippet.css.txt");
 
-            string file = File.ReadAllText(filename)
+            var file = File.ReadAllText(filename)
                 .Replace("{GenericCSS}", css)
                 ;
             return PatchCss(file, item);
