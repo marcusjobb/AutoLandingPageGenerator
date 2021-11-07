@@ -26,17 +26,17 @@ namespace AutoLandingPageGenerator
         public bool Stretch { get; set; } = false;
         public bool Scroll { get; set; } = true;
         public bool Repeat { get; set; } = true;
-        public string Text { get; set; }
+        public string Text { get; set; } = "";
         public List<string> Images { get; set; }
-        public string FontSize { get; set; }
-        public string CTAText1 { get; set; }
-        public string CTAText2 { get; set; }
-        public string CTAText3 { get; set; }
-        public string CTAIcon1{ get; set; }
-        public string CTAIcon2 { get; set; }
-        public string CTAIcon3 { get; set; }
-        public string Height { get; set; } = "20px";
-        public string Width { get; set; } = "100%";
+        public string FontSize { get; set; } = "";
+        public string CTAText1 { get; set; } = "";
+        public string CTAText2 { get; set; } = "";
+        public string CTAText3 { get; set; } = "";
+        public string CTAIcon1{ get; set; } = "";
+        public string CTAIcon2 { get; set; } = "";
+        public string CTAIcon3 { get; set; } = "";
+        public string Height { get; set; } = "100%";
+        public string Width { get; set; } = "99%";
         public string ArticlePicture { get; set; } = "";
     }
 }
