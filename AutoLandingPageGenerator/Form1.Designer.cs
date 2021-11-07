@@ -35,7 +35,7 @@
             this.btnMoveLeft = new System.Windows.Forms.Button();
             this.btnMoveRight = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
-            this.ControlPanel = new System.Windows.Forms.Panel();
+            this.pnSettings = new System.Windows.Forms.Panel();
             this.lbWidth = new System.Windows.Forms.Label();
             this.txWidth = new System.Windows.Forms.TextBox();
             this.lbHeight = new System.Windows.Forms.Label();
@@ -68,7 +68,7 @@
             this.txText = new System.Windows.Forms.TextBox();
             this.btPreview = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.ControlPanel.SuspendLayout();
+            this.pnSettings.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -131,40 +131,40 @@
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
-            // ControlPanel
+            // pnSettings
             // 
-            this.ControlPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ControlPanel.Controls.Add(this.lbWidth);
-            this.ControlPanel.Controls.Add(this.txWidth);
-            this.ControlPanel.Controls.Add(this.lbHeight);
-            this.ControlPanel.Controls.Add(this.txHeight);
-            this.ControlPanel.Controls.Add(this.comboBox1);
-            this.ControlPanel.Controls.Add(this.label2);
-            this.ControlPanel.Controls.Add(this.lbFontSize);
-            this.ControlPanel.Controls.Add(this.txSize);
-            this.ControlPanel.Controls.Add(this.ckRepeat);
-            this.ControlPanel.Controls.Add(this.ckStretch);
-            this.ControlPanel.Controls.Add(this.ckScroll);
-            this.ControlPanel.Controls.Add(this.btBackImage);
-            this.ControlPanel.Controls.Add(this.lbBackImage);
-            this.ControlPanel.Controls.Add(this.btForeColor);
-            this.ControlPanel.Controls.Add(this.ltForeColor);
-            this.ControlPanel.Controls.Add(this.btnBackgroundColor);
-            this.ControlPanel.Controls.Add(this.lbBackgroundColor);
-            this.ControlPanel.Controls.Add(this.lbFontFamily);
-            this.ControlPanel.Controls.Add(this.cbFontFamily);
-            this.ControlPanel.Controls.Add(this.lbMargin);
-            this.ControlPanel.Controls.Add(this.txMargin);
-            this.ControlPanel.Controls.Add(this.lbPadding);
-            this.ControlPanel.Controls.Add(this.txPadding);
-            this.ControlPanel.Controls.Add(this.lbTitle);
-            this.ControlPanel.Controls.Add(this.txTitle);
-            this.ControlPanel.Controls.Add(this.lbName);
-            this.ControlPanel.Controls.Add(this.txName);
-            this.ControlPanel.Location = new System.Drawing.Point(12, 52);
-            this.ControlPanel.Name = "ControlPanel";
-            this.ControlPanel.Size = new System.Drawing.Size(931, 143);
-            this.ControlPanel.TabIndex = 6;
+            this.pnSettings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnSettings.Controls.Add(this.lbWidth);
+            this.pnSettings.Controls.Add(this.txWidth);
+            this.pnSettings.Controls.Add(this.lbHeight);
+            this.pnSettings.Controls.Add(this.txHeight);
+            this.pnSettings.Controls.Add(this.comboBox1);
+            this.pnSettings.Controls.Add(this.label2);
+            this.pnSettings.Controls.Add(this.lbFontSize);
+            this.pnSettings.Controls.Add(this.txSize);
+            this.pnSettings.Controls.Add(this.ckRepeat);
+            this.pnSettings.Controls.Add(this.ckStretch);
+            this.pnSettings.Controls.Add(this.ckScroll);
+            this.pnSettings.Controls.Add(this.btBackImage);
+            this.pnSettings.Controls.Add(this.lbBackImage);
+            this.pnSettings.Controls.Add(this.btForeColor);
+            this.pnSettings.Controls.Add(this.ltForeColor);
+            this.pnSettings.Controls.Add(this.btnBackgroundColor);
+            this.pnSettings.Controls.Add(this.lbBackgroundColor);
+            this.pnSettings.Controls.Add(this.lbFontFamily);
+            this.pnSettings.Controls.Add(this.cbFontFamily);
+            this.pnSettings.Controls.Add(this.lbMargin);
+            this.pnSettings.Controls.Add(this.txMargin);
+            this.pnSettings.Controls.Add(this.lbPadding);
+            this.pnSettings.Controls.Add(this.txPadding);
+            this.pnSettings.Controls.Add(this.lbTitle);
+            this.pnSettings.Controls.Add(this.txTitle);
+            this.pnSettings.Controls.Add(this.lbName);
+            this.pnSettings.Controls.Add(this.txName);
+            this.pnSettings.Location = new System.Drawing.Point(12, 52);
+            this.pnSettings.Name = "pnSettings";
+            this.pnSettings.Size = new System.Drawing.Size(931, 143);
+            this.pnSettings.TabIndex = 6;
             // 
             // lbWidth
             // 
@@ -493,7 +493,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btPreview);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.ControlPanel);
+            this.Controls.Add(this.pnSettings);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.btnMoveRight);
             this.Controls.Add(this.btnMoveLeft);
@@ -507,8 +507,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Auto Landing Page Generator";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.ControlPanel.ResumeLayout(false);
-            this.ControlPanel.PerformLayout();
+            this.pnSettings.ResumeLayout(false);
+            this.pnSettings.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -548,7 +548,7 @@
         private System.Windows.Forms.Button btnPrev;
         private System.Windows.Forms.Button btnMoveLeft;
         private System.Windows.Forms.Button btnMoveRight;
-        private System.Windows.Forms.Panel ControlPanel;
+        private System.Windows.Forms.Panel pnSettings;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
