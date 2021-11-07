@@ -9,6 +9,8 @@ namespace AutoLandingPageGenerator
 
     internal class WebSection
     {
+        private string label = "Nameless";
+
         public WebSection() { }
         public WebSection(WebSection original)
         {
@@ -32,7 +34,14 @@ namespace AutoLandingPageGenerator
         public SectionType SectionType { get; set; }
         public int ID { get; set; }
         public string Name { get; set; } = "Nameless";
-        public string Label { get; set; } = "Nameless";
+        public string Label
+        {
+            get
+            {
+                return label != "" ? label : Name.Replace(" ", "").ToLower();
+            }
+            set => label = value;
+        }
         public string Padding { get; set; } = "120x";
         public string Margin { get; set; } = "50px";
         public string Font { get; set; } = "";

@@ -111,6 +111,7 @@
             this.btnMoveLeft.TabIndex = 33;
             this.btnMoveLeft.Text = "<<";
             this.btnMoveLeft.UseVisualStyleBackColor = true;
+            this.btnMoveLeft.Click += new System.EventHandler(this.BtnMoveLeft_Click);
             // 
             // btnMoveRight
             // 
@@ -120,6 +121,7 @@
             this.btnMoveRight.TabIndex = 34;
             this.btnMoveRight.Text = ">>";
             this.btnMoveRight.UseVisualStyleBackColor = true;
+            this.btnMoveRight.Click += new System.EventHandler(this.BtnMoveRight_Click);
             // 
             // Cancel
             // 
@@ -551,7 +553,6 @@
         private System.Windows.Forms.Panel pnSettings;
         private System.Windows.Forms.ComboBox cbSectionType;
         private System.Windows.Forms.Label lbSectionType;
-        private System.Windows.Forms.Panel pnPreview;
         private System.Windows.Forms.PictureBox pbArticleImage;
         private System.Windows.Forms.Label lbWidth;
         private System.Windows.Forms.TextBox txWidth;

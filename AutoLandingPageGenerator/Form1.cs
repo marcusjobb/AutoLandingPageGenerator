@@ -68,7 +68,6 @@
                 case SectionType.HugeTitle:
                     txTextVisible = false;
                     PictureVisible = false;
-                    titleVisible = false;
                     break;
                 case SectionType.NotDefined:
                     break;
@@ -101,6 +100,13 @@
             lbTitle.Visible = titleVisible;
             txTitle.Visible = titleVisible;
             IsRefreshing = false;
+
+            btnPrev.Enabled = pageId > 0;
+            btnNext.Enabled= pageId < webPage.Sections.Count-1;
+
+            btnMoveLeft.Enabled = pageId > 2;
+            btnMoveRight.Enabled = pageId > 2;
+
         }
 
         private void UpdateSection()
@@ -215,12 +221,48 @@
             UpdateSection();
             var userFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             var exportPath = Path.Combine(userFolder, "StartPages", webPage.Sections[0].Name);
+            var exportPicPath = Path.Combine(exportPath,"images");
+            CreatePath(exportPath);
+            CreatePath(exportPicPath);
+
+            foreach (var pic in webPage.Sections )
+            {
+                if (pic.SectionType==SectionType.TextWithImageLeft || pic.SectionType == SectionType.TextWithImageRight)
+                {
+                    var img = Path.Combine(exportPicPath, Path.GetFileName(pic.ArticlePicture));
+                    File.Copy(pic.ArticlePicture, img);
+                }
+            }
+
+            webPage.Generate(exportPath,exportPicPath);
+        }
+
+        private static void CreatePath(string exportPath)
+        {
             if (!Directory.Exists(exportPath))
             {
                 Directory.CreateDirectory(exportPath);
             }
+        }
 
-            webPage.Generate(exportPath);
+        private void BtnMoveLeft_Click(object sender, EventArgs e)
+        {
+            Swap(pageId, pageId - 1);
+        }
+
+        private void BtnMoveRight_Click(object sender, EventArgs e)
+        {
+            Swap(pageId, pageId + 1);
+        }
+
+        private void Swap(int idA, int idB)
+        {
+            if (idA < 2 || idB < 2 || idA > webPage.Sections.Count - 1 || idB > webPage.Sections.Count - 1) return;
+            var temp = webPage.Sections[idA];
+            webPage.Sections[idA] = webPage.Sections[idB];
+            webPage.Sections[idB] = temp;
+            pageId = idB;
+            RefreshSection();
         }
     }
 }
